@@ -1,0 +1,586 @@
+2026-04-29T15:23:49.486292Z 0 [System] [MY-015017] [Server] MySQL Server Initialization - start.
+2026-04-29T15:23:49.487676Z 0 [Warning] [MY-011070] [Server] 'binlog_format' is deprecated and will be removed in a future release.
+2026-04-29T15:23:49.487736Z 0 [Note] [MY-010096] [Server] Ignoring --secure-file-priv value as server is running with --initialize(-insecure).
+2026-04-29T15:23:49.487802Z 0 [Note] [MY-013932] [Server] BuildID[sha1]=bd21c47da2389ce44615087fffcceee3a4b155aa
+2026-04-29T15:23:49.487805Z 0 [Note] [MY-010949] [Server] Basedir set to /usr/.
+2026-04-29T15:23:49.487817Z 0 [System] [MY-013169] [Server] /usr/sbin/mysqld (mysqld 9.7.0) initializing of server in progress as process 41
+2026-04-29T15:23:49.489183Z 0 [Note] [MY-010458] [Server] --initialize specified on an existing data directory.
+2026-04-29T15:23:49.495920Z 0 [Note] [MY-010938] [Server] Generating a new UUID: 6c101b00-43df-11f1-9169-ac1f6bc84581.
+2026-04-29T15:23:49.496924Z 0 [Note] [MY-010747] [Server] Plugin 'FEDERATED' is disabled.
+2026-04-29T15:23:49.496986Z 0 [Note] [MY-010747] [Server] Plugin 'ndbcluster' is disabled.
+2026-04-29T15:23:49.496996Z 0 [Note] [MY-010747] [Server] Plugin 'ndbinfo' is disabled.
+2026-04-29T15:23:49.497001Z 0 [Note] [MY-010747] [Server] Plugin 'ndb_transid_mysql_connection_map' is disabled.
+2026-04-29T15:23:49.498048Z 1 [System] [MY-013576] [InnoDB] InnoDB initialization has started.
+2026-04-29T15:23:49.498086Z 1 [Note] [MY-013546] [InnoDB] Atomic write enabled
+2026-04-29T15:23:49.498108Z 1 [Note] [MY-012274] [InnoDB] The first innodb_system data file 'ibdata1' did not exist. A new tablespace will be created!
+2026-04-29T15:23:49.498129Z 1 [Note] [MY-012932] [InnoDB] PUNCH HOLE support available
+2026-04-29T15:23:49.498134Z 1 [Note] [MY-012944] [InnoDB] Uses event mutexes
+2026-04-29T15:23:49.498141Z 1 [Note] [MY-012945] [InnoDB] GCC builtin __atomic_thread_fence() is used for memory barrier
+2026-04-29T15:23:49.498152Z 1 [Note] [MY-012948] [InnoDB] Compressed tables use zlib 1.3.2
+2026-04-29T15:23:49.501531Z 1 [Note] [MY-012951] [InnoDB] Using hardware accelerated crc32 and polynomial multiplication.
+2026-04-29T15:23:49.501914Z 1 [Note] [MY-012203] [InnoDB] Directories to scan './'
+2026-04-29T15:23:49.501951Z 1 [Note] [MY-012204] [InnoDB] Scanning './'
+2026-04-29T15:23:49.501993Z 1 [Note] [MY-012208] [InnoDB] Completed space ID check of 0 files.
+2026-04-29T15:23:49.503021Z 1 [Note] [MY-012955] [InnoDB] Initializing buffer pool, total size = 2.000000G, instances = 1, chunk size =128.000000M 
+2026-04-29T15:23:49.619412Z 1 [Note] [MY-012957] [InnoDB] Completed initialization of buffer pool
+2026-04-29T15:23:49.631970Z 0 [Note] [MY-011952] [InnoDB] If the mysqld execution user is authorized, page cleaner thread priority can be changed. See the man page of setpriority().
+2026-04-29T15:23:49.632099Z 1 [Note] [MY-012265] [InnoDB] Setting file './ibdata1' size to 12 MB. Physically writing the file full; Please wait ...
+2026-04-29T15:23:49.636859Z 1 [Note] [MY-012266] [InnoDB] File './ibdata1' size is now 12 MB.
+2026-04-29T15:23:49.636910Z 1 [Note] [MY-013566] [InnoDB] Double write buffer files: 2, --innodb-doublewrite-files=2, segments_per_file=2
+2026-04-29T15:23:49.636919Z 1 [Note] [MY-013565] [InnoDB] Double write buffer pages per instance: 128
+2026-04-29T15:23:49.637019Z 1 [Note] [MY-013532] [InnoDB] Using './#ib_16384_0.dblwr' for doublewrite
+2026-04-29T15:23:49.639236Z 1 [Note] [MY-013532] [InnoDB] Using './#ib_16384_1.dblwr' for doublewrite
+2026-04-29T15:23:49.778059Z 1 [Note] [MY-012893] [InnoDB] New redo log files created, LSN=8204
+2026-04-29T15:23:49.780428Z 1 [Note] [MY-013083] [InnoDB] Log background threads are being started...
+2026-04-29T15:23:49.781215Z 1 [Note] [MY-012896] [InnoDB] Creating UNDO Tablespace ./undo_001
+2026-04-29T15:23:49.781237Z 1 [Note] [MY-012897] [InnoDB] Setting file ./undo_001 size to 16 MB
+2026-04-29T15:23:49.781243Z 1 [Note] [MY-012898] [InnoDB] Physically writing the file full
+2026-04-29T15:23:49.788703Z 1 [Note] [MY-012896] [InnoDB] Creating UNDO Tablespace ./undo_002
+2026-04-29T15:23:49.788722Z 1 [Note] [MY-012897] [InnoDB] Setting file ./undo_002 size to 16 MB
+2026-04-29T15:23:49.788731Z 1 [Note] [MY-012898] [InnoDB] Physically writing the file full
+2026-04-29T15:23:49.795992Z 1 [Note] [MY-012915] [InnoDB] Created 2 undo tablespaces.
+2026-04-29T15:23:49.796251Z 1 [Note] [MY-011980] [InnoDB] GTID recovery trx_no: 0
+2026-04-29T15:23:49.796262Z 1 [Note] [MY-013777] [InnoDB] Time taken to initialize rseg using 4 thread: 0 ms.
+2026-04-29T15:23:49.801071Z 1 [Note] [MY-011920] [InnoDB] Legacy doublewrite buffer not found: creating new
+2026-04-29T15:23:49.803123Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=24] type 20 to 13 when flushing.
+2026-04-29T15:23:49.803167Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=23] type 20 to 13 when flushing.
+2026-04-29T15:23:49.803185Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=22] type 20 to 13 when flushing.
+2026-04-29T15:23:49.803200Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=21] type 20 to 13 when flushing.
+2026-04-29T15:23:49.803214Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=20] type 20 to 13 when flushing.
+2026-04-29T15:23:49.803228Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=19] type 20 to 13 when flushing.
+2026-04-29T15:23:49.803242Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=18] type 20 to 13 when flushing.
+2026-04-29T15:23:49.803256Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=17] type 20 to 13 when flushing.
+2026-04-29T15:23:49.803280Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=16] type 20 to 13 when flushing.
+2026-04-29T15:23:49.803298Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=15] type 20 to 13 when flushing.
+2026-04-29T15:23:49.803312Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=14] type 20 to 13 when flushing.
+2026-04-29T15:23:49.803327Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=13] type 20 to 13 when flushing.
+2026-04-29T15:23:49.803341Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=12] type 20 to 13 when flushing.
+2026-04-29T15:23:49.803356Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=11] type 20 to 13 when flushing.
+2026-04-29T15:23:49.803370Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=10] type 20 to 13 when flushing.
+2026-04-29T15:23:49.803385Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=9] type 20 to 13 when flushing.
+2026-04-29T15:23:49.803399Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=40] type 20 to 13 when flushing.
+2026-04-29T15:23:49.803414Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=39] type 20 to 13 when flushing.
+2026-04-29T15:23:49.803427Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=38] type 20 to 13 when flushing.
+2026-04-29T15:23:49.803441Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=37] type 20 to 13 when flushing.
+2026-04-29T15:23:49.803455Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=36] type 20 to 13 when flushing.
+2026-04-29T15:23:49.803478Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=35] type 20 to 13 when flushing.
+2026-04-29T15:23:49.803491Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=34] type 20 to 13 when flushing.
+2026-04-29T15:23:49.803504Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=33] type 20 to 13 when flushing.
+2026-04-29T15:23:49.803522Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=32] type 20 to 13 when flushing.
+2026-04-29T15:23:49.803541Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=31] type 20 to 13 when flushing.
+2026-04-29T15:23:49.803555Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=30] type 20 to 13 when flushing.
+2026-04-29T15:23:49.803569Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=29] type 20 to 13 when flushing.
+2026-04-29T15:23:49.803584Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=28] type 20 to 13 when flushing.
+2026-04-29T15:23:49.803598Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=27] type 20 to 13 when flushing.
+2026-04-29T15:23:49.803611Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=26] type 20 to 13 when flushing.
+2026-04-29T15:23:49.803626Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=25] type 20 to 13 when flushing.
+2026-04-29T15:23:49.803640Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=79] type 20 to 13 when flushing.
+2026-04-29T15:23:49.803654Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=78] type 20 to 13 when flushing.
+2026-04-29T15:23:49.803668Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=77] type 20 to 13 when flushing.
+2026-04-29T15:23:49.803682Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=76] type 20 to 13 when flushing.
+2026-04-29T15:23:49.803696Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=75] type 20 to 13 when flushing.
+2026-04-29T15:23:49.803710Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=74] type 20 to 13 when flushing.
+2026-04-29T15:23:49.803723Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=73] type 20 to 13 when flushing.
+2026-04-29T15:23:49.803738Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=72] type 20 to 13 when flushing.
+2026-04-29T15:23:49.803752Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=71] type 20 to 13 when flushing.
+2026-04-29T15:23:49.803766Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=70] type 20 to 13 when flushing.
+2026-04-29T15:23:49.803780Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=69] type 20 to 13 when flushing.
+2026-04-29T15:23:49.803795Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=68] type 20 to 13 when flushing.
+2026-04-29T15:23:49.803808Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=67] type 20 to 13 when flushing.
+2026-04-29T15:23:49.803823Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=66] type 20 to 13 when flushing.
+2026-04-29T15:23:49.803838Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=65] type 20 to 13 when flushing.
+2026-04-29T15:23:49.803851Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=64] type 20 to 13 when flushing.
+2026-04-29T15:23:49.803865Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=95] type 20 to 13 when flushing.
+2026-04-29T15:23:49.803878Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=94] type 20 to 13 when flushing.
+2026-04-29T15:23:49.803893Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=93] type 20 to 13 when flushing.
+2026-04-29T15:23:49.803907Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=92] type 20 to 13 when flushing.
+2026-04-29T15:23:49.803921Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=91] type 20 to 13 when flushing.
+2026-04-29T15:23:49.803940Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=90] type 20 to 13 when flushing.
+2026-04-29T15:23:49.803954Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=89] type 20 to 13 when flushing.
+2026-04-29T15:23:49.803969Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=88] type 20 to 13 when flushing.
+2026-04-29T15:23:49.803983Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=87] type 20 to 13 when flushing.
+2026-04-29T15:23:49.803998Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=86] type 20 to 13 when flushing.
+2026-04-29T15:23:49.804011Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=85] type 20 to 13 when flushing.
+2026-04-29T15:23:49.804025Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=84] type 20 to 13 when flushing.
+2026-04-29T15:23:49.804039Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=83] type 20 to 13 when flushing.
+2026-04-29T15:23:49.804054Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=82] type 20 to 13 when flushing.
+2026-04-29T15:23:49.804067Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=81] type 20 to 13 when flushing.
+2026-04-29T15:23:49.804080Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=80] type 20 to 13 when flushing.
+2026-04-29T15:23:49.804094Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=111] type 20 to 13 when flushing.
+2026-04-29T15:23:49.804108Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=110] type 20 to 13 when flushing.
+2026-04-29T15:23:49.804122Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=109] type 20 to 13 when flushing.
+2026-04-29T15:23:49.804136Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=108] type 20 to 13 when flushing.
+2026-04-29T15:23:49.804151Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=107] type 20 to 13 when flushing.
+2026-04-29T15:23:49.804164Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=106] type 20 to 13 when flushing.
+2026-04-29T15:23:49.804178Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=105] type 20 to 13 when flushing.
+2026-04-29T15:23:49.804192Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=104] type 20 to 13 when flushing.
+2026-04-29T15:23:49.804206Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=103] type 20 to 13 when flushing.
+2026-04-29T15:23:49.804220Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=102] type 20 to 13 when flushing.
+2026-04-29T15:23:49.804233Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=101] type 20 to 13 when flushing.
+2026-04-29T15:23:49.804247Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=100] type 20 to 13 when flushing.
+2026-04-29T15:23:49.804261Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=99] type 20 to 13 when flushing.
+2026-04-29T15:23:49.804282Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=98] type 20 to 13 when flushing.
+2026-04-29T15:23:49.804296Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=97] type 20 to 13 when flushing.
+2026-04-29T15:23:49.804310Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=96] type 20 to 13 when flushing.
+2026-04-29T15:23:49.804325Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=127] type 20 to 13 when flushing.
+2026-04-29T15:23:49.804344Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=126] type 20 to 13 when flushing.
+2026-04-29T15:23:49.804358Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=125] type 20 to 13 when flushing.
+2026-04-29T15:23:49.804373Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=124] type 20 to 13 when flushing.
+2026-04-29T15:23:49.804387Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=123] type 20 to 13 when flushing.
+2026-04-29T15:23:49.804401Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=122] type 20 to 13 when flushing.
+2026-04-29T15:23:49.804414Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=121] type 20 to 13 when flushing.
+2026-04-29T15:23:49.804429Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=120] type 20 to 13 when flushing.
+2026-04-29T15:23:49.804442Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=119] type 20 to 13 when flushing.
+2026-04-29T15:23:49.804456Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=118] type 20 to 13 when flushing.
+2026-04-29T15:23:49.804471Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=117] type 20 to 13 when flushing.
+2026-04-29T15:23:49.804485Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=116] type 20 to 13 when flushing.
+2026-04-29T15:23:49.804498Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=115] type 20 to 13 when flushing.
+2026-04-29T15:23:49.804512Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=114] type 20 to 13 when flushing.
+2026-04-29T15:23:49.804526Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=113] type 20 to 13 when flushing.
+2026-04-29T15:23:49.804539Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=112] type 20 to 13 when flushing.
+2026-04-29T15:23:49.804553Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=143] type 20 to 13 when flushing.
+2026-04-29T15:23:49.804566Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=142] type 20 to 13 when flushing.
+2026-04-29T15:23:49.804581Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=141] type 20 to 13 when flushing.
+2026-04-29T15:23:49.804595Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=140] type 20 to 13 when flushing.
+2026-04-29T15:23:49.804608Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=139] type 20 to 13 when flushing.
+2026-04-29T15:23:49.804622Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=138] type 20 to 13 when flushing.
+2026-04-29T15:23:49.804636Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=137] type 20 to 13 when flushing.
+2026-04-29T15:23:49.804649Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=136] type 20 to 13 when flushing.
+2026-04-29T15:23:49.804663Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=135] type 20 to 13 when flushing.
+2026-04-29T15:23:49.804677Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=134] type 20 to 13 when flushing.
+2026-04-29T15:23:49.804691Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=133] type 20 to 13 when flushing.
+2026-04-29T15:23:49.804705Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=132] type 20 to 13 when flushing.
+2026-04-29T15:23:49.804718Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=131] type 20 to 13 when flushing.
+2026-04-29T15:23:49.804736Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=130] type 20 to 13 when flushing.
+2026-04-29T15:23:49.804752Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=129] type 20 to 13 when flushing.
+2026-04-29T15:23:49.804765Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=128] type 20 to 13 when flushing.
+2026-04-29T15:23:49.805736Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=159] type 20 to 13 when flushing.
+2026-04-29T15:23:49.805756Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=158] type 20 to 13 when flushing.
+2026-04-29T15:23:49.805763Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=157] type 20 to 13 when flushing.
+2026-04-29T15:23:49.805770Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=156] type 20 to 13 when flushing.
+2026-04-29T15:23:49.805777Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=155] type 20 to 13 when flushing.
+2026-04-29T15:23:49.805784Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=154] type 20 to 13 when flushing.
+2026-04-29T15:23:49.805791Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=153] type 20 to 13 when flushing.
+2026-04-29T15:23:49.805797Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=152] type 20 to 13 when flushing.
+2026-04-29T15:23:49.805804Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=151] type 20 to 13 when flushing.
+2026-04-29T15:23:49.805810Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=150] type 20 to 13 when flushing.
+2026-04-29T15:23:49.805820Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=149] type 20 to 13 when flushing.
+2026-04-29T15:23:49.805827Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=148] type 20 to 13 when flushing.
+2026-04-29T15:23:49.805834Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=147] type 20 to 13 when flushing.
+2026-04-29T15:23:49.805840Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=146] type 20 to 13 when flushing.
+2026-04-29T15:23:49.805847Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=145] type 20 to 13 when flushing.
+2026-04-29T15:23:49.805854Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=144] type 20 to 13 when flushing.
+2026-04-29T15:23:49.805861Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=175] type 20 to 13 when flushing.
+2026-04-29T15:23:49.805867Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=174] type 20 to 13 when flushing.
+2026-04-29T15:23:49.805874Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=173] type 20 to 13 when flushing.
+2026-04-29T15:23:49.805881Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=172] type 20 to 13 when flushing.
+2026-04-29T15:23:49.805887Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=171] type 20 to 13 when flushing.
+2026-04-29T15:23:49.805895Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=170] type 20 to 13 when flushing.
+2026-04-29T15:23:49.805902Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=169] type 20 to 13 when flushing.
+2026-04-29T15:23:49.805908Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=168] type 20 to 13 when flushing.
+2026-04-29T15:23:49.805915Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=167] type 20 to 13 when flushing.
+2026-04-29T15:23:49.805927Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=166] type 20 to 13 when flushing.
+2026-04-29T15:23:49.805938Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=165] type 20 to 13 when flushing.
+2026-04-29T15:23:49.805945Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=164] type 20 to 13 when flushing.
+2026-04-29T15:23:49.805952Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=163] type 20 to 13 when flushing.
+2026-04-29T15:23:49.805959Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=162] type 20 to 13 when flushing.
+2026-04-29T15:23:49.805967Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=161] type 20 to 13 when flushing.
+2026-04-29T15:23:49.805974Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=160] type 20 to 13 when flushing.
+2026-04-29T15:23:49.805980Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=191] type 20 to 13 when flushing.
+2026-04-29T15:23:49.805987Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=190] type 20 to 13 when flushing.
+2026-04-29T15:23:49.805994Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=189] type 20 to 13 when flushing.
+2026-04-29T15:23:49.806001Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=188] type 20 to 13 when flushing.
+2026-04-29T15:23:49.806008Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=187] type 20 to 13 when flushing.
+2026-04-29T15:23:49.806014Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=186] type 20 to 13 when flushing.
+2026-04-29T15:23:49.806021Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=185] type 20 to 13 when flushing.
+2026-04-29T15:23:49.806028Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=184] type 20 to 13 when flushing.
+2026-04-29T15:23:49.806035Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=183] type 20 to 13 when flushing.
+2026-04-29T15:23:49.806042Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=182] type 20 to 13 when flushing.
+2026-04-29T15:23:49.806048Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=181] type 20 to 13 when flushing.
+2026-04-29T15:23:49.806055Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=180] type 20 to 13 when flushing.
+2026-04-29T15:23:49.806062Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=179] type 20 to 13 when flushing.
+2026-04-29T15:23:49.806069Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=178] type 20 to 13 when flushing.
+2026-04-29T15:23:49.806075Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=177] type 20 to 13 when flushing.
+2026-04-29T15:23:49.806082Z 0 [Note] [MY-011950] [InnoDB] Resetting invalid page [page id: space=0, page number=176] type 20 to 13 when flushing.
+2026-04-29T15:23:49.808710Z 1 [Note] [MY-011924] [InnoDB] Legacy atomic write buffer created
+2026-04-29T15:23:49.808731Z 1 [Note] [MY-012923] [InnoDB] Creating shared tablespace for temporary tables
+2026-04-29T15:23:49.808887Z 1 [Note] [MY-012265] [InnoDB] Setting file './ibtmp1' size to 12 MB. Physically writing the file full; Please wait ...
+2026-04-29T15:23:49.813926Z 1 [Note] [MY-012266] [InnoDB] File './ibtmp1' size is now 12 MB.
+2026-04-29T15:23:49.817584Z 1 [Note] [MY-013018] [InnoDB] Created 128 and tracked 128 new rollback segment(s) in the temporary tablespace. 128 are now active.
+2026-04-29T15:23:49.821413Z 1 [Note] [MY-013018] [InnoDB] Created 128 and tracked 128 new rollback segment(s) in undo tablespace number 1. 128 are now active.
+2026-04-29T15:23:49.825961Z 1 [Note] [MY-013018] [InnoDB] Created 128 and tracked 128 new rollback segment(s) in undo tablespace number 2. 128 are now active.
+2026-04-29T15:23:49.833650Z 1 [Note] [MY-012976] [InnoDB] 9.7.0 started; log sequence number 2399391
+2026-04-29T15:23:49.834088Z 1 [System] [MY-013577] [InnoDB] InnoDB initialization has ended.
+2026-04-29T15:23:49.835368Z 1 [Note] [MY-011088] [Server] Data dictionary initializing version '90200'.
+2026-04-29T15:23:49.931682Z 1 [Note] [MY-010007] [Server] Installed data dictionary with version 90200
+2026-04-29T15:23:49.977629Z 2 [Note] [MY-011019] [Server] Created system views with I_S version 90200.
+2026-04-29T15:23:50.141517Z 0 [Note] [MY-013911] [Server] Crash recovery finished in binlog engine. No attempts to commit, rollback or prepare any transactions.
+2026-04-29T15:23:50.141577Z 0 [Note] [MY-013911] [Server] Crash recovery finished in InnoDB engine. No attempts to commit, rollback or prepare any transactions.
+2026-04-29T15:23:50.147657Z 0 [Note] [MY-012487] [InnoDB] DDL log recovery : begin
+2026-04-29T15:23:50.147684Z 0 [Note] [MY-012488] [InnoDB] DDL log recovery : end
+2026-04-29T15:23:50.149232Z 0 [Note] [MY-012922] [InnoDB] Waiting for purge to start
+2026-04-29T15:23:50.312082Z 0 [Note] [MY-010305] [Server] Auto generated SSL certificates are placed in data directory.
+2026-04-29T15:23:50.331051Z 0 [Note] [MY-010309] [Server] Auto generated RSA key files through --sha256_password_auto_generate_rsa_keys are placed in data directory.
+2026-04-29T15:23:50.331375Z 0 [Note] [MY-010308] [Server] Skipping generation of RSA key pair through --caching_sha2_password_auto_generate_rsa_keys as key files are present in data directory.
+2026-04-29T15:23:50.332648Z 6 [Note] [MY-011061] [Server] Creating the system database.
+2026-04-29T15:23:50.332709Z 6 [Warning] [MY-010453] [Server] root@localhost is created with an empty password ! Please consider switching off the --initialize-insecure option.
+2026-04-29T15:23:50.332762Z 6 [Note] [MY-011061] [Server] Creating the system tables.
+2026-04-29T15:23:50.415399Z 6 [Note] [MY-011061] [Server] Filling in the system tables, part 1.
+2026-04-29T15:23:50.422178Z 6 [Note] [MY-011061] [Server] Filling in the system tables, part 2.
+2026-04-29T15:23:50.670478Z 6 [Note] [MY-011061] [Server] Filling in the mysql.help table.
+2026-04-29T15:23:50.759046Z 6 [Note] [MY-011061] [Server] Creating the system users for internal usage.
+2026-04-29T15:23:50.762263Z 6 [Note] [MY-011061] [Server] Creating the sys schema.
+2026-04-29T15:23:50.923393Z 6 [Note] [MY-010456] [Server] Bootstrapping complete
+2026-04-29T15:23:50.932213Z 0 [Note] [MY-010067] [Server] Giving 0 client threads a chance to die gracefully
+2026-04-29T15:23:50.933519Z 0 [Note] [MY-012330] [InnoDB] FTS optimize thread exiting.
+2026-04-29T15:23:51.909803Z 0 [Note] [MY-013072] [InnoDB] Starting shutdown...
+2026-04-29T15:23:51.939393Z 0 [Note] [MY-013084] [InnoDB] Log background threads are being closed...
+2026-04-29T15:23:52.015402Z 0 [Note] [MY-013854] [InnoDB] Bytes written to disk by DBLWR (ON): 33816576
+2026-04-29T15:23:52.016006Z 0 [Note] [MY-012980] [InnoDB] Shutdown completed; log sequence number 19067445
+2026-04-29T15:23:52.016230Z 0 [Note] [MY-012255] [InnoDB] Removed temporary tablespace data file: "ibtmp1"
+2026-04-29T15:23:52.018661Z 0 [System] [MY-015018] [Server] MySQL Server Initialization - end.
+2026-04-29T15:23:52.054498Z 0 [System] [MY-015015] [Server] MySQL Server - start.
+2026-04-29T15:23:52.177913Z 0 [Warning] [MY-011070] [Server] 'binlog_format' is deprecated and will be removed in a future release.
+2026-04-29T15:23:52.178119Z 0 [Note] [MY-013932] [Server] BuildID[sha1]=bd21c47da2389ce44615087fffcceee3a4b155aa
+2026-04-29T15:23:52.178121Z 0 [Note] [MY-010949] [Server] Basedir set to /usr/.
+2026-04-29T15:23:52.178129Z 0 [System] [MY-010116] [Server] /usr/sbin/mysqld (mysqld 9.7.0) starting as process 105
+2026-04-29T15:23:52.178140Z 0 [System] [MY-015603] [Server] MySQL Server has access to 80 logical CPUs.
+2026-04-29T15:23:52.178146Z 0 [System] [MY-015603] [Server] MySQL Server has access to 201365626880 bytes of physical memory.
+2026-04-29T15:23:52.189847Z 0 [Note] [MY-010747] [Server] Plugin 'FEDERATED' is disabled.
+2026-04-29T15:23:52.189923Z 0 [Note] [MY-010747] [Server] Plugin 'ndbcluster' is disabled.
+2026-04-29T15:23:52.189932Z 0 [Note] [MY-010747] [Server] Plugin 'ndbinfo' is disabled.
+2026-04-29T15:23:52.189937Z 0 [Note] [MY-010747] [Server] Plugin 'ndb_transid_mysql_connection_map' is disabled.
+2026-04-29T15:23:52.191247Z 1 [System] [MY-013576] [InnoDB] InnoDB initialization has started.
+2026-04-29T15:23:52.191317Z 1 [Note] [MY-013546] [InnoDB] Atomic write enabled
+2026-04-29T15:23:52.191344Z 1 [Note] [MY-012932] [InnoDB] PUNCH HOLE support available
+2026-04-29T15:23:52.191355Z 1 [Note] [MY-012944] [InnoDB] Uses event mutexes
+2026-04-29T15:23:52.191363Z 1 [Note] [MY-012945] [InnoDB] GCC builtin __atomic_thread_fence() is used for memory barrier
+2026-04-29T15:23:52.191373Z 1 [Note] [MY-012948] [InnoDB] Compressed tables use zlib 1.3.2
+2026-04-29T15:23:52.194949Z 1 [Note] [MY-012951] [InnoDB] Using hardware accelerated crc32 and polynomial multiplication.
+2026-04-29T15:23:52.195361Z 1 [Note] [MY-012203] [InnoDB] Directories to scan './'
+2026-04-29T15:23:52.195406Z 1 [Note] [MY-012204] [InnoDB] Scanning './'
+2026-04-29T15:23:52.197122Z 1 [Note] [MY-012208] [InnoDB] Completed space ID check of 4 files.
+2026-04-29T15:23:52.197996Z 1 [Note] [MY-012955] [InnoDB] Initializing buffer pool, total size = 2.000000G, instances = 1, chunk size =128.000000M 
+2026-04-29T15:23:52.317058Z 1 [Note] [MY-012957] [InnoDB] Completed initialization of buffer pool
+2026-04-29T15:23:52.329709Z 0 [Note] [MY-011952] [InnoDB] If the mysqld execution user is authorized, page cleaner thread priority can be changed. See the man page of setpriority().
+2026-04-29T15:23:52.330325Z 1 [Note] [MY-013532] [InnoDB] Using './#ib_16384_0.dblwr' for doublewrite
+2026-04-29T15:23:52.338147Z 1 [Note] [MY-013532] [InnoDB] Using './#ib_16384_1.dblwr' for doublewrite
+2026-04-29T15:23:52.357302Z 1 [Note] [MY-013566] [InnoDB] Double write buffer files: 2, --innodb-doublewrite-files=2, segments_per_file=2
+2026-04-29T15:23:52.357318Z 1 [Note] [MY-013565] [InnoDB] Double write buffer pages per instance: 128
+2026-04-29T15:23:52.357332Z 1 [Note] [MY-013532] [InnoDB] Using './#ib_16384_0.dblwr' for doublewrite
+2026-04-29T15:23:52.357345Z 1 [Note] [MY-013532] [InnoDB] Using './#ib_16384_1.dblwr' for doublewrite
+2026-04-29T15:23:52.492118Z 1 [Note] [MY-013883] [InnoDB] The latest found checkpoint is at lsn = 19067445 in redo log file ./#innodb_redo/#ib_redo0.
+2026-04-29T15:23:52.492223Z 1 [Note] [MY-013086] [InnoDB] Starting to parse redo log at lsn = 19067445, whereas checkpoint_lsn = 19067445 and start_lsn = 19067392
+2026-04-29T15:23:52.492232Z 1 [Note] [MY-012532] [InnoDB] Applying a batch of 0 redo log records ...
+2026-04-29T15:23:52.492327Z 1 [Note] [MY-012535] [InnoDB] Apply batch completed!
+2026-04-29T15:23:52.495411Z 1 [Note] [MY-013083] [InnoDB] Log background threads are being started...
+2026-04-29T15:23:52.500715Z 1 [Note] [MY-013252] [InnoDB] Using undo tablespace './undo_001'.
+2026-04-29T15:23:52.501115Z 1 [Note] [MY-013252] [InnoDB] Using undo tablespace './undo_002'.
+2026-04-29T15:23:52.501831Z 1 [Note] [MY-012910] [InnoDB] Opened 2 existing undo tablespaces.
+2026-04-29T15:23:52.501857Z 1 [Note] [MY-011980] [InnoDB] GTID recovery trx_no: 1030
+2026-04-29T15:23:52.529455Z 1 [Note] [MY-013776] [InnoDB] Parallel initialization of rseg complete
+2026-04-29T15:23:52.529483Z 1 [Note] [MY-013777] [InnoDB] Time taken to initialize rseg using 4 thread: 27 ms.
+2026-04-29T15:23:52.529535Z 1 [Note] [MY-012923] [InnoDB] Creating shared tablespace for temporary tables
+2026-04-29T15:23:52.529817Z 1 [Note] [MY-012265] [InnoDB] Setting file './ibtmp1' size to 12 MB. Physically writing the file full; Please wait ...
+2026-04-29T15:23:52.534793Z 1 [Note] [MY-012266] [InnoDB] File './ibtmp1' size is now 12 MB.
+2026-04-29T15:23:52.534862Z 1 [Note] [MY-013627] [InnoDB] Scanning temp tablespace dir:'./#innodb_temp/'
+2026-04-29T15:23:52.539689Z 1 [Note] [MY-013018] [InnoDB] Created 128 and tracked 128 new rollback segment(s) in the temporary tablespace. 128 are now active.
+2026-04-29T15:23:52.540104Z 1 [Note] [MY-012976] [InnoDB] 9.7.0 started; log sequence number 19067455
+2026-04-29T15:23:52.540709Z 1 [System] [MY-013577] [InnoDB] InnoDB initialization has ended.
+2026-04-29T15:23:52.546972Z 1 [Note] [MY-011089] [Server] Data dictionary restarting version '90200'.
+2026-04-29T15:23:52.625619Z 1 [Note] [MY-012357] [InnoDB] Reading DD tablespace files
+2026-04-29T15:23:52.626047Z 1 [Note] [MY-012356] [InnoDB] Scanned 6 tablespaces. Validated 6.
+2026-04-29T15:23:52.634105Z 1 [Note] [MY-010006] [Server] Using data dictionary with version '90200'.
+2026-04-29T15:23:52.638880Z 0 [Note] [MY-011323] [Server] Plugin mysqlx reported: 'X Plugin ready for connections. socket: '/tmp/mysqlx.sock''
+2026-04-29T15:23:52.689896Z 0 [Note] [MY-010902] [Server] Thread priority attribute setting in Resource Group SQL shall be ignored due to unsupported platform or insufficient privilege.
+2026-04-29T15:23:52.691553Z 0 [Note] [MY-010856] [Server] Failed to open the crashed binlog file when source server is recovering it.
+2026-04-29T15:23:52.701364Z 0 [Note] [MY-013911] [Server] Crash recovery finished in binlog engine. No attempts to commit, rollback or prepare any transactions.
+2026-04-29T15:23:52.701381Z 0 [Note] [MY-013911] [Server] Crash recovery finished in InnoDB engine. No attempts to commit, rollback or prepare any transactions.
+2026-04-29T15:23:52.703680Z 0 [Note] [MY-012487] [InnoDB] DDL log recovery : begin
+2026-04-29T15:23:52.703930Z 0 [Note] [MY-012488] [InnoDB] DDL log recovery : end
+2026-04-29T15:23:52.707571Z 0 [Note] [MY-012922] [InnoDB] Waiting for purge to start
+2026-04-29T15:23:52.763759Z 0 [Note] [MY-010182] [Server] Found ca.pem, server-cert.pem and server-key.pem in data directory. Trying to enable SSL support using them.
+2026-04-29T15:23:52.764525Z 0 [Note] [MY-010304] [Server] Skipping generation of SSL certificates as certificate files are present in data directory.
+2026-04-29T15:23:52.765797Z 0 [Warning] [MY-010068] [Server] CA certificate ca.pem is self signed.
+2026-04-29T15:23:52.765820Z 0 [System] [MY-013602] [Server] Channel mysql_main configured to support TLS. Encrypted connections are now supported for this channel.
+2026-04-29T15:23:52.766118Z 0 [Note] [MY-010308] [Server] Skipping generation of RSA key pair through --sha256_password_auto_generate_rsa_keys as key files are present in data directory.
+2026-04-29T15:23:52.766376Z 0 [Note] [MY-010308] [Server] Skipping generation of RSA key pair through --caching_sha2_password_auto_generate_rsa_keys as key files are present in data directory.
+2026-04-29T15:23:52.767486Z 0 [Warning] [MY-011810] [Server] Insecure configuration for --pid-file: Location '/var/run/mysqld' in the path is accessible to all OS users. Consider choosing a different directory.
+2026-04-29T15:23:52.782311Z 0 [Note] [MY-011025] [Repl] Failed to start replica threads for channel ''.
+2026-04-29T15:23:52.784194Z 5 [Note] [MY-010051] [Server] Event Scheduler: scheduler thread started with id 5
+2026-04-29T15:23:52.784329Z 0 [Note] [MY-011240] [Server] Plugin mysqlx reported: 'Using SSL configuration from MySQL Server'
+2026-04-29T15:23:52.784877Z 0 [Note] [MY-011243] [Server] Plugin mysqlx reported: 'Using OpenSSL for TLS connections'
+2026-04-29T15:23:52.785049Z 0 [System] [MY-011323] [Server] X Plugin ready for connections. Socket: /tmp/mysqlx.sock
+2026-04-29T15:23:52.785064Z 0 [System] [MY-010931] [Server] /usr/sbin/mysqld: ready for connections. Version: '9.7.0'  socket: '/var/run/mysqld/mysqld.sock'  port: 0  Source distribution.
+2026-04-29T15:23:54.020000Z 12 [System] [MY-013172] [Server] Received SHUTDOWN from user root. Shutting down mysqld (Version: 9.7.0).
+2026-04-29T15:23:54.021193Z 0 [Note] [MY-015023] [Server] MySQL Server: Closing Connections - start.
+2026-04-29T15:23:54.021510Z 0 [Note] [MY-010067] [Server] Giving 1 client threads a chance to die gracefully
+2026-04-29T15:23:54.021575Z 0 [Note] [MY-010117] [Server] Shutting down replica threads
+2026-04-29T15:23:54.021595Z 0 [Note] [MY-010054] [Server] Event Scheduler: Killing the scheduler thread, thread id 5
+2026-04-29T15:23:54.021602Z 0 [Note] [MY-010050] [Server] Event Scheduler: Waiting for the scheduler thread to reply
+2026-04-29T15:23:54.021666Z 0 [Note] [MY-010048] [Server] Event Scheduler: Stopped
+2026-04-29T15:23:54.021671Z 0 [Note] [MY-010118] [Server] Forcefully disconnecting 0 remaining clients
+2026-04-29T15:23:54.021678Z 0 [Note] [MY-010043] [Server] Event Scheduler: Purging the queue. 0 events
+2026-04-29T15:23:54.021721Z 0 [Note] [MY-015024] [Server] MySQL Server: Closing Connections - end.
+2026-04-29T15:23:54.022922Z 0 [Note] [MY-012330] [InnoDB] FTS optimize thread exiting.
+2026-04-29T15:23:54.630343Z 0 [Note] [MY-010120] [Server] Binlog end
+2026-04-29T15:23:54.632184Z 0 [Note] [MY-015019] [Server] MySQL Server: Plugins Shutdown - start.
+2026-04-29T15:23:54.632223Z 0 [Note] [MY-010733] [Server] Shutting down plugin 'mysqlx'
+2026-04-29T15:23:54.633242Z 0 [Note] [MY-010733] [Server] Shutting down plugin 'mysqlx_cache_cleaner'
+2026-04-29T15:23:54.633256Z 0 [Note] [MY-010733] [Server] Shutting down plugin 'ngram'
+2026-04-29T15:23:54.633260Z 0 [Note] [MY-010733] [Server] Shutting down plugin 'BLACKHOLE'
+2026-04-29T15:23:54.633272Z 0 [Note] [MY-010733] [Server] Shutting down plugin 'ARCHIVE'
+2026-04-29T15:23:54.633278Z 0 [Note] [MY-010733] [Server] Shutting down plugin 'TempTable'
+2026-04-29T15:23:54.633285Z 0 [Note] [MY-010733] [Server] Shutting down plugin 'PERFORMANCE_SCHEMA'
+2026-04-29T15:23:54.633319Z 0 [Note] [MY-010733] [Server] Shutting down plugin 'MRG_MYISAM'
+2026-04-29T15:23:54.633325Z 0 [Note] [MY-010733] [Server] Shutting down plugin 'MyISAM'
+2026-04-29T15:23:54.633340Z 0 [Note] [MY-010733] [Server] Shutting down plugin 'INNODB_SESSION_TEMP_TABLESPACES'
+2026-04-29T15:23:54.633346Z 0 [Note] [MY-010733] [Server] Shutting down plugin 'INNODB_CACHED_INDEXES'
+2026-04-29T15:23:54.633350Z 0 [Note] [MY-010733] [Server] Shutting down plugin 'INNODB_VIRTUAL'
+2026-04-29T15:23:54.633353Z 0 [Note] [MY-010733] [Server] Shutting down plugin 'INNODB_COLUMNS'
+2026-04-29T15:23:54.633357Z 0 [Note] [MY-010733] [Server] Shutting down plugin 'INNODB_TABLESPACES'
+2026-04-29T15:23:54.633362Z 0 [Note] [MY-010733] [Server] Shutting down plugin 'INNODB_INDEXES'
+2026-04-29T15:23:54.633366Z 0 [Note] [MY-010733] [Server] Shutting down plugin 'INNODB_TABLESTATS'
+2026-04-29T15:23:54.633370Z 0 [Note] [MY-010733] [Server] Shutting down plugin 'INNODB_TABLES'
+2026-04-29T15:23:54.633374Z 0 [Note] [MY-010733] [Server] Shutting down plugin 'INNODB_FT_INDEX_TABLE'
+2026-04-29T15:23:54.633377Z 0 [Note] [MY-010733] [Server] Shutting down plugin 'INNODB_FT_INDEX_CACHE'
+2026-04-29T15:23:54.633381Z 0 [Note] [MY-010733] [Server] Shutting down plugin 'INNODB_FT_CONFIG'
+2026-04-29T15:23:54.633384Z 0 [Note] [MY-010733] [Server] Shutting down plugin 'INNODB_FT_BEING_DELETED'
+2026-04-29T15:23:54.633388Z 0 [Note] [MY-010733] [Server] Shutting down plugin 'INNODB_FT_DELETED'
+2026-04-29T15:23:54.633392Z 0 [Note] [MY-010733] [Server] Shutting down plugin 'INNODB_FT_DEFAULT_STOPWORD'
+2026-04-29T15:23:54.633396Z 0 [Note] [MY-010733] [Server] Shutting down plugin 'INNODB_METRICS'
+2026-04-29T15:23:54.633399Z 0 [Note] [MY-010733] [Server] Shutting down plugin 'INNODB_TEMP_TABLE_INFO'
+2026-04-29T15:23:54.633403Z 0 [Note] [MY-010733] [Server] Shutting down plugin 'INNODB_BUFFER_POOL_STATS'
+2026-04-29T15:23:54.633406Z 0 [Note] [MY-010733] [Server] Shutting down plugin 'INNODB_BUFFER_PAGE_LRU'
+2026-04-29T15:23:54.633410Z 0 [Note] [MY-010733] [Server] Shutting down plugin 'INNODB_BUFFER_PAGE'
+2026-04-29T15:23:54.633414Z 0 [Note] [MY-010733] [Server] Shutting down plugin 'INNODB_CMP_PER_INDEX_RESET'
+2026-04-29T15:23:54.633417Z 0 [Note] [MY-010733] [Server] Shutting down plugin 'INNODB_CMP_PER_INDEX'
+2026-04-29T15:23:54.633421Z 0 [Note] [MY-010733] [Server] Shutting down plugin 'INNODB_CMPMEM_RESET'
+2026-04-29T15:23:54.633425Z 0 [Note] [MY-010733] [Server] Shutting down plugin 'INNODB_CMPMEM'
+2026-04-29T15:23:54.633432Z 0 [Note] [MY-010733] [Server] Shutting down plugin 'INNODB_CMP_RESET'
+2026-04-29T15:23:54.633442Z 0 [Note] [MY-010733] [Server] Shutting down plugin 'INNODB_CMP'
+2026-04-29T15:23:54.633447Z 0 [Note] [MY-010733] [Server] Shutting down plugin 'INNODB_TRX'
+2026-04-29T15:23:54.633451Z 0 [Note] [MY-010733] [Server] Shutting down plugin 'InnoDB'
+2026-04-29T15:23:54.633475Z 0 [Note] [MY-013072] [InnoDB] Starting shutdown...
+2026-04-29T15:23:54.647418Z 0 [Note] [MY-013084] [InnoDB] Log background threads are being closed...
+2026-04-29T15:23:54.712824Z 0 [Note] [MY-013854] [InnoDB] Bytes written to disk by DBLWR (ON): 11239424
+2026-04-29T15:23:54.713646Z 0 [Note] [MY-012980] [InnoDB] Shutdown completed; log sequence number 29757113
+2026-04-29T15:23:54.714009Z 0 [Note] [MY-012255] [InnoDB] Removed temporary tablespace data file: "ibtmp1"
+2026-04-29T15:23:54.714083Z 0 [Note] [MY-010733] [Server] Shutting down plugin 'MEMORY'
+2026-04-29T15:23:54.714110Z 0 [Note] [MY-010733] [Server] Shutting down plugin 'CSV'
+2026-04-29T15:23:54.714130Z 0 [Note] [MY-010733] [Server] Shutting down plugin 'daemon_keyring_proxy_plugin'
+2026-04-29T15:23:54.714318Z 0 [Note] [MY-010733] [Server] Shutting down plugin 'caching_sha2_password'
+2026-04-29T15:23:54.714376Z 0 [Note] [MY-010733] [Server] Shutting down plugin 'sha256_password'
+2026-04-29T15:23:54.714637Z 0 [Note] [MY-010733] [Server] Shutting down plugin 'binlog'
+2026-04-29T15:23:54.714643Z 0 [Note] [MY-015020] [Server] MySQL Server: Plugins Shutdown - end.
+2026-04-29T15:23:54.716288Z 0 [Note] [MY-015021] [Server] MySQL Server: Components Shutdown - start.
+2026-04-29T15:23:54.716661Z 0 [Note] [MY-015022] [Server] MySQL Server: Components Shutdown - end (with return value = 0).
+2026-04-29T15:23:54.716900Z 0 [System] [MY-010910] [Server] /usr/sbin/mysqld: Shutdown complete (mysqld 9.7.0)  Source distribution.
+2026-04-29T15:23:54.716905Z 0 [System] [MY-015016] [Server] MySQL Server - end.
+2026-04-29T15:23:55.042590Z 0 [System] [MY-015015] [Server] MySQL Server - start.
+2026-04-29T15:23:55.157900Z 0 [Warning] [MY-011070] [Server] 'binlog_format' is deprecated and will be removed in a future release.
+2026-04-29T15:23:55.158083Z 0 [Note] [MY-013932] [Server] BuildID[sha1]=bd21c47da2389ce44615087fffcceee3a4b155aa
+2026-04-29T15:23:55.158086Z 0 [Note] [MY-010949] [Server] Basedir set to /usr/.
+2026-04-29T15:23:55.158093Z 0 [System] [MY-010116] [Server] /usr/sbin/mysqld (mysqld 9.7.0) starting as process 1
+2026-04-29T15:23:55.158103Z 0 [System] [MY-015603] [Server] MySQL Server has access to 80 logical CPUs.
+2026-04-29T15:23:55.158109Z 0 [System] [MY-015603] [Server] MySQL Server has access to 201365626880 bytes of physical memory.
+2026-04-29T15:23:55.166492Z 0 [Note] [MY-010747] [Server] Plugin 'FEDERATED' is disabled.
+2026-04-29T15:23:55.166557Z 0 [Note] [MY-010747] [Server] Plugin 'ndbcluster' is disabled.
+2026-04-29T15:23:55.166566Z 0 [Note] [MY-010747] [Server] Plugin 'ndbinfo' is disabled.
+2026-04-29T15:23:55.166571Z 0 [Note] [MY-010747] [Server] Plugin 'ndb_transid_mysql_connection_map' is disabled.
+2026-04-29T15:23:55.167719Z 1 [System] [MY-013576] [InnoDB] InnoDB initialization has started.
+2026-04-29T15:23:55.167760Z 1 [Note] [MY-013546] [InnoDB] Atomic write enabled
+2026-04-29T15:23:55.167784Z 1 [Note] [MY-012932] [InnoDB] PUNCH HOLE support available
+2026-04-29T15:23:55.167794Z 1 [Note] [MY-012944] [InnoDB] Uses event mutexes
+2026-04-29T15:23:55.167802Z 1 [Note] [MY-012945] [InnoDB] GCC builtin __atomic_thread_fence() is used for memory barrier
+2026-04-29T15:23:55.167812Z 1 [Note] [MY-012948] [InnoDB] Compressed tables use zlib 1.3.2
+2026-04-29T15:23:55.171196Z 1 [Note] [MY-012951] [InnoDB] Using hardware accelerated crc32 and polynomial multiplication.
+2026-04-29T15:23:55.171576Z 1 [Note] [MY-012203] [InnoDB] Directories to scan './'
+2026-04-29T15:23:55.171612Z 1 [Note] [MY-012204] [InnoDB] Scanning './'
+2026-04-29T15:23:55.173348Z 1 [Note] [MY-012208] [InnoDB] Completed space ID check of 4 files.
+2026-04-29T15:23:55.174370Z 1 [Note] [MY-012955] [InnoDB] Initializing buffer pool, total size = 2.000000G, instances = 1, chunk size =128.000000M 
+2026-04-29T15:23:55.291498Z 1 [Note] [MY-012957] [InnoDB] Completed initialization of buffer pool
+2026-04-29T15:23:55.303722Z 0 [Note] [MY-011952] [InnoDB] If the mysqld execution user is authorized, page cleaner thread priority can be changed. See the man page of setpriority().
+2026-04-29T15:23:55.304249Z 1 [Note] [MY-013532] [InnoDB] Using './#ib_16384_0.dblwr' for doublewrite
+2026-04-29T15:23:55.312158Z 1 [Note] [MY-013532] [InnoDB] Using './#ib_16384_1.dblwr' for doublewrite
+2026-04-29T15:23:55.331482Z 1 [Note] [MY-013566] [InnoDB] Double write buffer files: 2, --innodb-doublewrite-files=2, segments_per_file=2
+2026-04-29T15:23:55.331498Z 1 [Note] [MY-013565] [InnoDB] Double write buffer pages per instance: 128
+2026-04-29T15:23:55.331512Z 1 [Note] [MY-013532] [InnoDB] Using './#ib_16384_0.dblwr' for doublewrite
+2026-04-29T15:23:55.331525Z 1 [Note] [MY-013532] [InnoDB] Using './#ib_16384_1.dblwr' for doublewrite
+2026-04-29T15:23:55.465537Z 1 [Note] [MY-013883] [InnoDB] The latest found checkpoint is at lsn = 29757113 in redo log file ./#innodb_redo/#ib_redo0.
+2026-04-29T15:23:55.465646Z 1 [Note] [MY-013086] [InnoDB] Starting to parse redo log at lsn = 29756986, whereas checkpoint_lsn = 29757113 and start_lsn = 29756928
+2026-04-29T15:23:55.465665Z 1 [Note] [MY-012532] [InnoDB] Applying a batch of 0 redo log records ...
+2026-04-29T15:23:55.465758Z 1 [Note] [MY-012535] [InnoDB] Apply batch completed!
+2026-04-29T15:23:55.468722Z 1 [Note] [MY-013083] [InnoDB] Log background threads are being started...
+2026-04-29T15:23:55.474260Z 1 [Note] [MY-013252] [InnoDB] Using undo tablespace './undo_001'.
+2026-04-29T15:23:55.474836Z 1 [Note] [MY-013252] [InnoDB] Using undo tablespace './undo_002'.
+2026-04-29T15:23:55.475442Z 1 [Note] [MY-012910] [InnoDB] Opened 2 existing undo tablespaces.
+2026-04-29T15:23:55.475465Z 1 [Note] [MY-011980] [InnoDB] GTID recovery trx_no: 1602
+2026-04-29T15:23:55.504965Z 1 [Note] [MY-013776] [InnoDB] Parallel initialization of rseg complete
+2026-04-29T15:23:55.504993Z 1 [Note] [MY-013777] [InnoDB] Time taken to initialize rseg using 4 thread: 29 ms.
+2026-04-29T15:23:55.505044Z 1 [Note] [MY-012923] [InnoDB] Creating shared tablespace for temporary tables
+2026-04-29T15:23:55.505173Z 1 [Note] [MY-012265] [InnoDB] Setting file './ibtmp1' size to 12 MB. Physically writing the file full; Please wait ...
+2026-04-29T15:23:55.510213Z 1 [Note] [MY-012266] [InnoDB] File './ibtmp1' size is now 12 MB.
+2026-04-29T15:23:55.510285Z 1 [Note] [MY-013627] [InnoDB] Scanning temp tablespace dir:'./#innodb_temp/'
+2026-04-29T15:23:55.514825Z 1 [Note] [MY-013018] [InnoDB] Created 128 and tracked 128 new rollback segment(s) in the temporary tablespace. 128 are now active.
+2026-04-29T15:23:55.515246Z 1 [Note] [MY-012976] [InnoDB] 9.7.0 started; log sequence number 29757123
+2026-04-29T15:23:55.516046Z 1 [System] [MY-013577] [InnoDB] InnoDB initialization has ended.
+2026-04-29T15:23:55.522676Z 1 [Note] [MY-011089] [Server] Data dictionary restarting version '90200'.
+2026-04-29T15:23:55.600217Z 1 [Note] [MY-012357] [InnoDB] Reading DD tablespace files
+2026-04-29T15:23:55.600645Z 1 [Note] [MY-012356] [InnoDB] Scanned 6 tablespaces. Validated 6.
+2026-04-29T15:23:55.609205Z 1 [Note] [MY-010006] [Server] Using data dictionary with version '90200'.
+2026-04-29T15:23:55.613951Z 0 [Note] [MY-011332] [Server] Plugin mysqlx reported: 'IPv6 is available'
+2026-04-29T15:23:55.614418Z 0 [Note] [MY-011323] [Server] Plugin mysqlx reported: 'X Plugin ready for connections. bind-address: '::' port: 33060'
+2026-04-29T15:23:55.614433Z 0 [Note] [MY-011323] [Server] Plugin mysqlx reported: 'X Plugin ready for connections. socket: '/tmp/mysqlx.sock''
+2026-04-29T15:23:55.630295Z 0 [Note] [MY-010902] [Server] Thread priority attribute setting in Resource Group SQL shall be ignored due to unsupported platform or insufficient privilege.
+2026-04-29T15:23:55.632354Z 0 [Note] [MY-010856] [Server] Failed to open the crashed binlog file when source server is recovering it.
+2026-04-29T15:23:55.642176Z 0 [Note] [MY-013911] [Server] Crash recovery finished in binlog engine. No attempts to commit, rollback or prepare any transactions.
+2026-04-29T15:23:55.642201Z 0 [Note] [MY-013911] [Server] Crash recovery finished in InnoDB engine. No attempts to commit, rollback or prepare any transactions.
+2026-04-29T15:23:55.644340Z 0 [Note] [MY-012487] [InnoDB] DDL log recovery : begin
+2026-04-29T15:23:55.644635Z 0 [Note] [MY-012488] [InnoDB] DDL log recovery : end
+2026-04-29T15:23:55.648224Z 0 [Note] [MY-012922] [InnoDB] Waiting for purge to start
+2026-04-29T15:23:55.710392Z 0 [Note] [MY-010182] [Server] Found ca.pem, server-cert.pem and server-key.pem in data directory. Trying to enable SSL support using them.
+2026-04-29T15:23:55.711154Z 0 [Note] [MY-010304] [Server] Skipping generation of SSL certificates as certificate files are present in data directory.
+2026-04-29T15:23:55.712445Z 0 [Warning] [MY-010068] [Server] CA certificate ca.pem is self signed.
+2026-04-29T15:23:55.712470Z 0 [System] [MY-013602] [Server] Channel mysql_main configured to support TLS. Encrypted connections are now supported for this channel.
+2026-04-29T15:23:55.712775Z 0 [Note] [MY-010308] [Server] Skipping generation of RSA key pair through --sha256_password_auto_generate_rsa_keys as key files are present in data directory.
+2026-04-29T15:23:55.713041Z 0 [Note] [MY-010308] [Server] Skipping generation of RSA key pair through --caching_sha2_password_auto_generate_rsa_keys as key files are present in data directory.
+2026-04-29T15:23:55.713418Z 0 [Note] [MY-010252] [Server] Server hostname (bind-address): '0.0.0.0'; port: 3306
+2026-04-29T15:23:55.713434Z 0 [Note] [MY-010264] [Server]   - '0.0.0.0' resolves to '0.0.0.0';
+2026-04-29T15:23:55.713448Z 0 [Note] [MY-010251] [Server] Server socket created on IP: '0.0.0.0'.
+2026-04-29T15:23:55.713732Z 0 [Warning] [MY-011810] [Server] Insecure configuration for --pid-file: Location '/var/run/mysqld' in the path is accessible to all OS users. Consider choosing a different directory.
+2026-04-29T15:23:55.735689Z 0 [Note] [MY-011025] [Repl] Failed to start replica threads for channel ''.
+2026-04-29T15:23:55.737513Z 5 [Note] [MY-010051] [Server] Event Scheduler: scheduler thread started with id 5
+2026-04-29T15:23:55.737657Z 0 [Note] [MY-011240] [Server] Plugin mysqlx reported: 'Using SSL configuration from MySQL Server'
+2026-04-29T15:23:55.738216Z 0 [Note] [MY-011243] [Server] Plugin mysqlx reported: 'Using OpenSSL for TLS connections'
+2026-04-29T15:23:55.738405Z 0 [System] [MY-011323] [Server] X Plugin ready for connections. Bind-address: '::' port: 33060, socket: /tmp/mysqlx.sock
+2026-04-29T15:23:55.738425Z 0 [System] [MY-010931] [Server] /usr/sbin/mysqld: ready for connections. Version: '9.7.0'  socket: '/var/run/mysqld/mysqld.sock'  port: 3306  Source distribution.
+2026-04-29T15:23:56.430122Z 11 [Note] [MY-012870] [InnoDB] Monitor 'lock_deadlocks' is already enabled.
+2026-04-29T15:23:56.430162Z 11 [Note] [MY-012870] [InnoDB] Monitor 'lock_deadlock_false_positives' is already enabled.
+2026-04-29T15:23:56.430167Z 11 [Note] [MY-012870] [InnoDB] Monitor 'lock_deadlock_rounds' is already enabled.
+2026-04-29T15:23:56.430172Z 11 [Note] [MY-012870] [InnoDB] Monitor 'lock_threads_waiting' is already enabled.
+2026-04-29T15:23:56.430175Z 11 [Note] [MY-012870] [InnoDB] Monitor 'lock_timeouts' is already enabled.
+2026-04-29T15:23:56.430180Z 11 [Note] [MY-012870] [InnoDB] Monitor 'lock_rec_release_attempts' is already enabled.
+2026-04-29T15:23:56.430183Z 11 [Note] [MY-012870] [InnoDB] Monitor 'lock_rec_grant_attempts' is already enabled.
+2026-04-29T15:23:56.430188Z 11 [Note] [MY-012870] [InnoDB] Monitor 'lock_row_lock_current_waits' is already enabled.
+2026-04-29T15:23:56.430191Z 11 [Note] [MY-012870] [InnoDB] Monitor 'lock_row_lock_time' is already enabled.
+2026-04-29T15:23:56.430195Z 11 [Note] [MY-012870] [InnoDB] Monitor 'lock_row_lock_time_max' is already enabled.
+2026-04-29T15:23:56.430203Z 11 [Note] [MY-012870] [InnoDB] Monitor 'lock_row_lock_waits' is already enabled.
+2026-04-29T15:23:56.430207Z 11 [Note] [MY-012870] [InnoDB] Monitor 'lock_row_lock_time_avg' is already enabled.
+2026-04-29T15:23:56.430217Z 11 [Note] [MY-012870] [InnoDB] Monitor 'lock_schedule_refreshes' is already enabled.
+2026-04-29T15:23:56.430221Z 11 [Note] [MY-012870] [InnoDB] Monitor 'buffer_pool_size' is already enabled.
+2026-04-29T15:23:56.430225Z 11 [Note] [MY-012870] [InnoDB] Monitor 'buffer_pool_reads' is already enabled.
+2026-04-29T15:23:56.430228Z 11 [Note] [MY-012870] [InnoDB] Monitor 'buffer_pool_read_requests' is already enabled.
+2026-04-29T15:23:56.430232Z 11 [Note] [MY-012870] [InnoDB] Monitor 'buffer_pool_write_requests' is already enabled.
+2026-04-29T15:23:56.430236Z 11 [Note] [MY-012870] [InnoDB] Monitor 'buffer_pool_wait_free' is already enabled.
+2026-04-29T15:23:56.430239Z 11 [Note] [MY-012870] [InnoDB] Monitor 'buffer_pool_read_ahead' is already enabled.
+2026-04-29T15:23:56.430243Z 11 [Note] [MY-012870] [InnoDB] Monitor 'buffer_pool_read_ahead_evicted' is already enabled.
+2026-04-29T15:23:56.430246Z 11 [Note] [MY-012870] [InnoDB] Monitor 'buffer_pool_pages_total' is already enabled.
+2026-04-29T15:23:56.430250Z 11 [Note] [MY-012870] [InnoDB] Monitor 'buffer_pool_pages_misc' is already enabled.
+2026-04-29T15:23:56.430253Z 11 [Note] [MY-012870] [InnoDB] Monitor 'buffer_pool_pages_data' is already enabled.
+2026-04-29T15:23:56.430257Z 11 [Note] [MY-012870] [InnoDB] Monitor 'buffer_pool_bytes_data' is already enabled.
+2026-04-29T15:23:56.430260Z 11 [Note] [MY-012870] [InnoDB] Monitor 'buffer_pool_pages_dirty' is already enabled.
+2026-04-29T15:23:56.430270Z 11 [Note] [MY-012870] [InnoDB] Monitor 'buffer_pool_bytes_dirty' is already enabled.
+2026-04-29T15:23:56.430275Z 11 [Note] [MY-012870] [InnoDB] Monitor 'buffer_pool_pages_free' is already enabled.
+2026-04-29T15:23:56.430279Z 11 [Note] [MY-012870] [InnoDB] Monitor 'buffer_pages_created' is already enabled.
+2026-04-29T15:23:56.430282Z 11 [Note] [MY-012870] [InnoDB] Monitor 'buffer_pages_written' is already enabled.
+2026-04-29T15:23:56.430286Z 11 [Note] [MY-012870] [InnoDB] Monitor 'buffer_pages_read' is already enabled.
+2026-04-29T15:23:56.430289Z 11 [Note] [MY-012870] [InnoDB] Monitor 'buffer_data_reads' is already enabled.
+2026-04-29T15:23:56.430293Z 11 [Note] [MY-012870] [InnoDB] Monitor 'buffer_data_written' is already enabled.
+2026-04-29T15:23:56.430301Z 11 [Note] [MY-012870] [InnoDB] Monitor 'os_data_reads' is already enabled.
+2026-04-29T15:23:56.430304Z 11 [Note] [MY-012870] [InnoDB] Monitor 'os_data_writes' is already enabled.
+2026-04-29T15:23:56.430308Z 11 [Note] [MY-012870] [InnoDB] Monitor 'os_data_fsyncs' is already enabled.
+2026-04-29T15:23:56.430311Z 11 [Note] [MY-012870] [InnoDB] Monitor 'os_log_bytes_written' is already enabled.
+2026-04-29T15:23:56.430315Z 11 [Note] [MY-012870] [InnoDB] Monitor 'os_log_fsyncs' is already enabled.
+2026-04-29T15:23:56.430318Z 11 [Note] [MY-012870] [InnoDB] Monitor 'os_log_pending_fsyncs' is already enabled.
+2026-04-29T15:23:56.430322Z 11 [Note] [MY-012870] [InnoDB] Monitor 'os_log_pending_writes' is already enabled.
+2026-04-29T15:23:56.430326Z 11 [Note] [MY-012870] [InnoDB] Monitor 'trx_rseg_history_len' is already enabled.
+2026-04-29T15:23:56.430346Z 11 [Note] [MY-012870] [InnoDB] Monitor 'log_waits' is already enabled.
+2026-04-29T15:23:56.430349Z 11 [Note] [MY-012870] [InnoDB] Monitor 'log_write_requests' is already enabled.
+2026-04-29T15:23:56.430353Z 11 [Note] [MY-012870] [InnoDB] Monitor 'log_writes' is already enabled.
+2026-04-29T15:23:56.430358Z 11 [Note] [MY-012870] [InnoDB] Monitor 'adaptive_hash_searches' is already enabled.
+2026-04-29T15:23:56.430362Z 11 [Note] [MY-012870] [InnoDB] Monitor 'adaptive_hash_searches_btree' is already enabled.
+2026-04-29T15:23:56.430366Z 11 [Note] [MY-012870] [InnoDB] Monitor 'file_num_open_files' is already enabled.
+2026-04-29T15:23:56.430369Z 11 [Note] [MY-012870] [InnoDB] Monitor 'ibuf_merges_insert' is already enabled.
+2026-04-29T15:23:56.430373Z 11 [Note] [MY-012870] [InnoDB] Monitor 'ibuf_merges_delete_mark' is already enabled.
+2026-04-29T15:23:56.430379Z 11 [Note] [MY-012870] [InnoDB] Monitor 'ibuf_merges_delete' is already enabled.
+2026-04-29T15:23:56.430386Z 11 [Note] [MY-012870] [InnoDB] Monitor 'ibuf_merges_discard_insert' is already enabled.
+2026-04-29T15:23:56.430389Z 11 [Note] [MY-012870] [InnoDB] Monitor 'ibuf_merges_discard_delete_mark' is already enabled.
+2026-04-29T15:23:56.430393Z 11 [Note] [MY-012870] [InnoDB] Monitor 'ibuf_merges_discard_delete' is already enabled.
+2026-04-29T15:23:56.430396Z 11 [Note] [MY-012870] [InnoDB] Monitor 'ibuf_merges' is already enabled.
+2026-04-29T15:23:56.430400Z 11 [Note] [MY-012870] [InnoDB] Monitor 'ibuf_size' is already enabled.
+2026-04-29T15:23:56.430404Z 11 [Note] [MY-012870] [InnoDB] Monitor 'innodb_activity_count' is already enabled.
+2026-04-29T15:23:56.430409Z 11 [Note] [MY-012870] [InnoDB] Monitor 'innodb_dblwr_writes' is already enabled.
+2026-04-29T15:23:56.430412Z 11 [Note] [MY-012870] [InnoDB] Monitor 'innodb_dblwr_pages_written' is already enabled.
+2026-04-29T15:23:56.430416Z 11 [Note] [MY-012870] [InnoDB] Monitor 'innodb_page_size' is already enabled.
+2026-04-29T15:23:56.430419Z 11 [Note] [MY-012870] [InnoDB] Monitor 'innodb_rwlock_s_spin_waits' is already enabled.
+2026-04-29T15:23:56.430423Z 11 [Note] [MY-012870] [InnoDB] Monitor 'innodb_rwlock_x_spin_waits' is already enabled.
+2026-04-29T15:23:56.430437Z 11 [Note] [MY-012870] [InnoDB] Monitor 'innodb_rwlock_sx_spin_waits' is already enabled.
+2026-04-29T15:23:56.430441Z 11 [Note] [MY-012870] [InnoDB] Monitor 'innodb_rwlock_s_spin_rounds' is already enabled.
+2026-04-29T15:23:56.430444Z 11 [Note] [MY-012870] [InnoDB] Monitor 'innodb_rwlock_x_spin_rounds' is already enabled.
+2026-04-29T15:23:56.430447Z 11 [Note] [MY-012870] [InnoDB] Monitor 'innodb_rwlock_sx_spin_rounds' is already enabled.
+2026-04-29T15:23:56.430451Z 11 [Note] [MY-012870] [InnoDB] Monitor 'innodb_rwlock_s_os_waits' is already enabled.
+2026-04-29T15:23:56.430454Z 11 [Note] [MY-012870] [InnoDB] Monitor 'innodb_rwlock_x_os_waits' is already enabled.
+2026-04-29T15:23:56.430458Z 11 [Note] [MY-012870] [InnoDB] Monitor 'innodb_rwlock_sx_os_waits' is already enabled.
+2026-04-29T15:23:56.430462Z 11 [Note] [MY-012870] [InnoDB] Monitor 'dml_inserts' is already enabled.
+2026-04-29T15:23:56.430465Z 11 [Note] [MY-012870] [InnoDB] Monitor 'dml_deletes' is already enabled.
+2026-04-29T15:23:56.430469Z 11 [Note] [MY-012870] [InnoDB] Monitor 'dml_updates' is already enabled.
+2026-04-29T15:23:56.430472Z 11 [Note] [MY-012870] [InnoDB] Monitor 'dml_system_reads' is already enabled.
+2026-04-29T15:23:56.430476Z 11 [Note] [MY-012870] [InnoDB] Monitor 'dml_system_inserts' is already enabled.
+2026-04-29T15:23:56.430479Z 11 [Note] [MY-012870] [InnoDB] Monitor 'dml_system_deletes' is already enabled.
+2026-04-29T15:23:56.430482Z 11 [Note] [MY-012870] [InnoDB] Monitor 'dml_system_updates' is already enabled.
+2026-04-29T15:24:17.307275Z 0 [Warning] [MY-014084] [InnoDB] Threads are unable to reserve space in redo log which can't be reclaimed due to the 'log_checkpointer' consumer still lagging behind at LSN = 951182887. Consider increasing innodb_redo_log_capacity.
+2026-04-29T15:24:31.013734Z 0 [Warning] [MY-014084] [InnoDB] Threads are unable to reserve space in redo log which can't be reclaimed due to the 'log_checkpointer' consumer still lagging behind at LSN = 4437137360. Consider increasing innodb_redo_log_capacity.
+2026-04-29T15:24:45.249985Z 0 [Warning] [MY-014084] [InnoDB] Threads are unable to reserve space in redo log which can't be reclaimed due to the 'log_checkpointer' consumer still lagging behind at LSN = 8036813947. Consider increasing innodb_redo_log_capacity.
+2026-04-29T15:24:59.071391Z 0 [Warning] [MY-014084] [InnoDB] Threads are unable to reserve space in redo log which can't be reclaimed due to the 'log_checkpointer' consumer still lagging behind at LSN = 11551212406. Consider increasing innodb_redo_log_capacity.
+2026-04-29T15:25:13.972561Z 0 [Warning] [MY-014084] [InnoDB] Threads are unable to reserve space in redo log which can't be reclaimed due to the 'log_checkpointer' consumer still lagging behind at LSN = 15269540253. Consider increasing innodb_redo_log_capacity.
+2026-04-29T15:25:29.082037Z 0 [Warning] [MY-014084] [InnoDB] Threads are unable to reserve space in redo log which can't be reclaimed due to the 'log_checkpointer' consumer still lagging behind at LSN = 19072335964. Consider increasing innodb_redo_log_capacity.
+2026-04-29T15:47:21.531870Z 0 [Note] [MY-012994] [InnoDB] Truncating UNDO tablespace innodb_undo_001
+2026-04-29T15:47:21.545644Z 0 [Note] [MY-013000] [InnoDB] Completed truncate of undo tablespace innodb_undo_001.
+2026-04-29T15:50:48.651652Z 0 [Note] [MY-012994] [InnoDB] Truncating UNDO tablespace innodb_undo_002
+2026-04-29T15:50:48.667734Z 0 [Note] [MY-013000] [InnoDB] Completed truncate of undo tablespace innodb_undo_002.
+2026-04-29T16:23:35.897686Z 0 [Warning] [MY-014089] [InnoDB] Redo log writer is waiting for a new redo log file. Consider increasing innodb_redo_log_capacity. The current log capacity is 4294967296 bytes. The log capacity used is 4294967296 bytes.
+2026-04-29T16:39:08.283504Z 0 [Warning] [MY-014089] [InnoDB] Redo log writer is waiting for a new redo log file. Consider increasing innodb_redo_log_capacity. The current log capacity is 4294967296 bytes. The log capacity used is 4294967296 bytes.
+2026-04-29T17:12:15.348491Z 0 [Note] [MY-011953] [InnoDB] Page cleaner took 4353ms to flush 1380 and evict 253 pages
+2026-04-29T17:12:29.098806Z 0 [Note] [MY-011953] [InnoDB] Page cleaner took 4242ms to flush 1421 and evict 198 pages
+2026-04-29T17:12:39.689292Z 0 [Note] [MY-011953] [InnoDB] Page cleaner took 4396ms to flush 1374 and evict 158 pages
+2026-04-29T17:13:48.509994Z 0 [Note] [MY-011953] [InnoDB] Page cleaner took 4484ms to flush 1331 and evict 219 pages
+2026-04-29T17:14:40.015743Z 0 [Note] [MY-011953] [InnoDB] Page cleaner took 4044ms to flush 1299 and evict 188 pages
+2026-04-29T17:14:51.624653Z 0 [Note] [MY-011953] [InnoDB] Page cleaner took 4055ms to flush 1296 and evict 180 pages
+2026-04-29T17:15:08.740410Z 0 [Note] [MY-011953] [InnoDB] Page cleaner took 4002ms to flush 1289 and evict 266 pages
+2026-04-29T17:15:16.579337Z 0 [Note] [MY-011953] [InnoDB] Page cleaner took 4154ms to flush 1319 and evict 219 pages
+2026-04-29T17:16:25.820390Z 0 [Note] [MY-011953] [InnoDB] Page cleaner took 4240ms to flush 1279 and evict 203 pages
+2026-04-29T17:17:18.508551Z 0 [Note] [MY-011953] [InnoDB] Page cleaner took 4277ms to flush 1221 and evict 211 pages
+2026-04-29T17:17:31.248834Z 0 [Note] [MY-011953] [InnoDB] Page cleaner took 4429ms to flush 1244 and evict 203 pages
+2026-04-29T17:17:52.034570Z 0 [Note] [MY-011953] [InnoDB] Page cleaner took 4410ms to flush 1251 and evict 215 pages
+2026-04-29T17:18:16.927277Z 0 [Note] [MY-011953] [InnoDB] Page cleaner took 4388ms to flush 1272 and evict 201 pages
+2026-04-29T17:18:29.610664Z 0 [Note] [MY-011953] [InnoDB] Page cleaner took 4096ms to flush 1292 and evict 225 pages
+2026-04-29T17:18:41.967681Z 0 [Note] [MY-011953] [InnoDB] Page cleaner took 4656ms to flush 1282 and evict 238 pages
+2026-04-29T17:18:53.881169Z 0 [Note] [MY-011953] [InnoDB] Page cleaner took 4271ms to flush 1285 and evict 180 pages
+2026-04-29T17:19:28.472416Z 0 [Note] [MY-011953] [InnoDB] Page cleaner took 5238ms to flush 1291 and evict 221 pages
+2026-04-29T17:19:36.097558Z 0 [Note] [MY-011953] [InnoDB] Page cleaner took 4152ms to flush 1292 and evict 216 pages
+2026-04-29T17:19:51.039175Z 0 [Note] [MY-011953] [InnoDB] Page cleaner took 4854ms to flush 1313 and evict 211 pages
+2026-04-29T17:20:10.076348Z 0 [Note] [MY-011953] [InnoDB] Page cleaner took 4871ms to flush 1297 and evict 186 pages
+2026-04-29T17:20:25.274737Z 0 [Note] [MY-011953] [InnoDB] Page cleaner took 4493ms to flush 1346 and evict 185 pages
+2026-04-29T17:20:42.594208Z 0 [Note] [MY-011953] [InnoDB] Page cleaner took 4428ms to flush 1368 and evict 181 pages
+2026-04-29T17:20:57.466354Z 0 [Note] [MY-011953] [InnoDB] Page cleaner took 5264ms to flush 1364 and evict 218 pages
+2026-04-29T17:21:14.758867Z 0 [Note] [MY-011953] [InnoDB] Page cleaner took 5134ms to flush 1356 and evict 215 pages
+2026-04-29T17:21:43.531081Z 0 [Note] [MY-011953] [InnoDB] Page cleaner took 4645ms to flush 1370 and evict 237 pages
+2026-04-29T17:22:01.461794Z 0 [Note] [MY-011953] [InnoDB] Page cleaner took 4301ms to flush 1416 and evict 212 pages
+2026-04-29T17:22:16.690086Z 0 [Note] [MY-011953] [InnoDB] Page cleaner took 4945ms to flush 1408 and evict 204 pages
+2026-04-29T17:22:29.747353Z 0 [Note] [MY-011953] [InnoDB] Page cleaner took 5321ms to flush 1389 and evict 205 pages
+2026-04-29T17:22:41.461907Z 0 [Note] [MY-011953] [InnoDB] Page cleaner took 5095ms to flush 1392 and evict 187 pages
+2026-04-29T17:23:02.963762Z 0 [Note] [MY-011953] [InnoDB] Page cleaner took 4106ms to flush 1355 and evict 251 pages
+2026-04-29T17:23:17.252132Z 0 [Note] [MY-011953] [InnoDB] Page cleaner took 5432ms to flush 1371 and evict 193 pages
+2026-04-29T17:23:29.676057Z 0 [Note] [MY-011953] [InnoDB] Page cleaner took 4076ms to flush 1372 and evict 224 pages
+2026-04-29T17:23:43.339077Z 0 [Note] [MY-011953] [InnoDB] Page cleaner took 4620ms to flush 1390 and evict 180 pages
+2026-04-29T17:24:19.756301Z 0 [Note] [MY-011953] [InnoDB] Page cleaner took 5130ms to flush 1338 and evict 219 pages
+2026-04-29T17:24:56.077412Z 0 [Note] [MY-011953] [InnoDB] Page cleaner took 4607ms to flush 1260 and evict 202 pages
+2026-04-29T17:25:11.664377Z 0 [Note] [MY-011953] [InnoDB] Page cleaner took 4083ms to flush 1260 and evict 229 pages
+2026-04-29T17:25:47.449942Z 0 [Note] [MY-011953] [InnoDB] Page cleaner took 5118ms to flush 1273 and evict 204 pages
+2026-04-29T17:28:50.469603Z 0 [Note] [MY-011953] [InnoDB] Page cleaner took 4403ms to flush 1045 and evict 203 pages
+2026-04-29T17:31:32.994937Z 0 [Note] [MY-011953] [InnoDB] Page cleaner took 4814ms to flush 897 and evict 157 pages
+2026-04-29T17:32:00.270181Z 0 [Note] [MY-011953] [InnoDB] Page cleaner took 5352ms to flush 911 and evict 313 pages
+2026-04-29T17:33:17.669466Z 0 [Note] [MY-011953] [InnoDB] Page cleaner took 4885ms to flush 897 and evict 419 pages
+2026-04-29T17:34:54.086534Z 0 [Note] [MY-011953] [InnoDB] Page cleaner took 4933ms to flush 828 and evict 479 pages
+2026-04-29T17:41:13.229687Z 0 [Note] [MY-011953] [InnoDB] Page cleaner took 5201ms to flush 828 and evict 279 pages

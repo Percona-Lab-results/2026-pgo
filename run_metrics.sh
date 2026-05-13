@@ -6,11 +6,11 @@ DB_USER="root"
 DB_PASS="password"
 DB_DATABASE="sbtest"
 
-# POOL_SIZES=(32 12 2)      # The 3 Tiers (GB)
-POOL_SIZES=(12)
+POOL_SIZES=(32 12 2)      # The 3 Tiers (GB)
+#POOL_SIZES=(12)
 
-#THREADS=(1 4 16 32 64 128 256 512)
-THREADS=(32 64)
+THREADS=(1 4 16 32 64 128 256 512)
+#THREADS=(32 64)
 
 # --- DEBUG SETTINGS ---
 TABLE_ROWS=5000000
@@ -506,7 +506,7 @@ for SIZE in "${POOL_SIZES[@]}"; do
 
   # 3. MEASUREMENT (three runs per thread count for stability)
   for THREAD in "${THREADS[@]}"; do
-    for RUN in 1 2 3; do
+    for RUN in 1 ; do
       FILE_PREFIX="${LOG_DIR}/run${RUN}_Tier${SIZE}G_RW_${THREAD}th"
       echo "   >>> Testing ${THREAD} Threads (run ${RUN}/3)..."
 
