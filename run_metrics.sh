@@ -26,7 +26,6 @@ DURATION=900
 DBMS_NAME="$1"
 DBMS_VER="$2"
 IS_READ_ONLY="$3"
-USE_LEGACY_LSN="$4"
 
 CONF_D_DIR="/etc/mysql/conf.d"
 sudo cpupower frequency-set -g performance > /dev/null
@@ -135,15 +134,10 @@ RAW_VERSION=$(mysql -h $DB_HOST -u $DB_USER -p$DB_PASS -N -e "SELECT VERSION();"
 MAJOR_VER=$(echo $RAW_VERSION | cut -d'.' -f1,2)
 IS_MARIA=$(echo $RAW_VERSION | grep -i "Maria" | wc -l)
 
-if [ "$USE_LEGACY_LSN" == "1" ]; then
-    LOG_DIR="${BENCH_DIR}/${DBMS_NAME}/${RAW_VERSION}-legacy"
-else
-    LOG_DIR="${BENCH_DIR}/${DBMS_NAME}/${RAW_VERSION}"
-fi
+LOG_DIR="${BENCH_DIR}/${DBMS_NAME}/${RAW_VERSION}"
 mkdir -p $LOG_DIR
 
 echo "Detected: $RAW_VERSION (Major: $MAJOR_VER, MariaDB: $IS_MARIA)"
-[ "$USE_LEGACY_LSN" == "1" ] && echo "Legacy LSN mode: ENABLED"
 
 check_innodb_buffer() {
     local EXPECTED_GB=$1
@@ -327,11 +321,6 @@ generate_config() {
     [ "$INSTANCES" -lt 1 ] && INSTANCES=1
     [ "$INSTANCES" -gt 8 ] && INSTANCES=8
 
-    # Add legacy LSN age factor if requested (Percona Server specific)
-    if [ "$USE_LEGACY_LSN" == "1" ]; then
-        echo "innodb_cleaner_lsn_age_factor   = legacy" >> "$CFG"
-        echo "" >> "$CFG"
-    fi
 
     if [ "$IS_MARIA" -eq 1 ]; then
         # --- MARIADB ---

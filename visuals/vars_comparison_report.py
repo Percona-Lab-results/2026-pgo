@@ -68,7 +68,11 @@ def generate_html_report(data_by_tier: Dict[str, Dict[str, Dict[str, str]]],
                          tiers: List[str]):
     """Generate HTML comparison report."""
 
-    servers = sorted(data_by_tier[tiers[0]].keys())
+    # Collect all unique servers across all tiers
+    all_servers = set()
+    for tier_data in data_by_tier.values():
+        all_servers.update(tier_data.keys())
+    servers = sorted(all_servers)
 
     # Collect all variable names across all tiers
     all_vars: Set[str] = set()
@@ -343,7 +347,9 @@ def generate_html_report(data_by_tier: Dict[str, Dict[str, Dict[str, str]]],
                 values.append(value)
 
             # Check if values differ
-            unique_values = set(v for v in values if v != 'N/A')
+            unique_values = set(values)
+            # If we have N/A and something else, it's different
+            # If all values are the same (including all N/A), it's same
             is_different = len(unique_values) > 1
             category = "different" if is_different else "same"
             row_class = "var-row different" if is_different else "var-row"
