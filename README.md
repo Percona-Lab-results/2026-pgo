@@ -51,13 +51,6 @@ MySQL 9.7.0 with Profile-Guided Optimization (PGO) demonstrates significant perf
 - Smaller buffer pools may see slight regressions at very high thread counts (128-512 threads)
 - The performance improvements demonstrate PGO's effectiveness in optimizing hot code paths in production-like workloads
 
-The interactive reports allow for detailed analysis of:
-- Transaction throughput differences between PGO and non-PGO MySQL builds
-- Impact of different buffer pool sizes on performance
-- Scaling characteristics across different thread counts
-- Storage engine behavior differences
-- Configuration and runtime variable differences
-
 ### InnoDB Metrics Analysis
 
 Deep analysis of InnoDB metrics reveals the source of PGO's performance improvements:
@@ -136,7 +129,7 @@ Profile-Guided Optimization (PGO) is a compiler optimization technique that uses
 
 ```
 2026-pgo/
-├── benchmark_logs/          # Raw benchmark data and logs
+├── benchmark_logs/         # Raw benchmark data and logs
 │   ├── mysql/              # MySQL 9.7.0 (PGO)
 │   └── mysql-non-pgo/      # MySQL 9.7.0 (no PGO)
 ├── visuals/                # Report generation scripts
@@ -149,20 +142,18 @@ Profile-Guided Optimization (PGO) is a compiler optimization technique that uses
 ├── innodb_metrics_report.html
 ├── sysbench_ps_mysql_individual.html
 ├── run_metrics.sh          # Benchmark execution script
+├── BUILD.md                # Build steps
 └── README.md               # This file
 ```
 
-## Building MySQL with PGO
+## Building MySQL without PGO
 
-The MySQL non-PGO build was created using the build system documented in the `mysql-9.7.0-build/` directory, which compiles MySQL from source on Oracle Linux 9.7 and packages it as a Docker image.
-
-## License
-
-Benchmark data and analysis scripts are provided for educational and research purposes.
-
-## Contact
-
-For questions or issues, please open an issue in the repository.
+For detailed build instructions, see **[BUILD.md](BUILD.md)**, which provides:
+- Complete step-by-step build process from source download to Docker image
+- CMake configuration details and compiler flags
+- Docker image packaging strategy
+- Build verification and testing steps
+- Comparison of PGO vs non-PGO builds
 
 ---
 
