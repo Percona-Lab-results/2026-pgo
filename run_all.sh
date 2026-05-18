@@ -29,12 +29,12 @@ sudo apt install sysstat sysbench dstat -y
 IS_READ_ONLY="0"
 VERSIONS=("9.7.0")
 
-# for VERSION in "${VERSIONS[@]}"; do
-#   ./run_metrics.sh "mysql-non-pgo" "$VERSION" "$IS_READ_ONLY" "0"
-#   ./run_metrics.sh "mysql" "$VERSION" "$IS_READ_ONLY" "0"
-# done
+for VERSION in "${VERSIONS[@]}"; do
+  ./run_metrics.sh "mysql-non-pgo-2" "$VERSION" "$IS_READ_ONLY"
+#  ./run_metrics.sh "mysql" "$VERSION" "$IS_READ_ONLY"
+done
 
-./run_metrics.sh "percona-server" "8.4.8" "0" "0"
+# ./run_metrics.sh "percona-server" "8.4.8" "0"
 
 
 echo ""

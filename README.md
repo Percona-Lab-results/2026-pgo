@@ -5,8 +5,8 @@ This project contains performance benchmark results comparing Profile-Guided Opt
 ## Overview
 
 **Servers Tested:**
-- **MySQL 9.7.0** (PGO-enabled build)
-- **MySQL 9.7.0 Non-PGO** (built without Profile-Guided Optimization)
+- **MySQL 9.7.0** (PGO-enabled build released by Oracle)
+- **MySQL 9.7.0 Non-PGO** (built without Profile-Guided Optimization — see [BUILD.md](BUILD.md))
 
 **Tier Configurations:**
 - Tier 2G: 2GB InnoDB buffer pool
@@ -22,34 +22,56 @@ The benchmark reports are available as interactive HTML pages at:
 https://percona-lab-results.github.io/2026-pgo/index.html
 ```
 
+### Performance Graphs
+
+**Overall Comparison (All Tiers):**
+
+![PGO vs Non-PGO - All Tiers](visuals/pgo_all.png)
+
+**Tier 2G (2GB Buffer Pool):**
+
+![PGO vs Non-PGO - Tier 2G](visuals/pgo_2G.png)
+
+**Tier 12G (12GB Buffer Pool):**
+
+![PGO vs Non-PGO - Tier 12G](visuals/pgo_12G.png)
+
+**Tier 32G (32GB Buffer Pool):**
+
+![PGO vs Non-PGO - Tier 32G](visuals/pgo_32G.png)
+
 ## Key Findings
 
 ### Performance Impact of PGO
 
-MySQL 9.7.0 with Profile-Guided Optimization (PGO) demonstrates significant performance improvements over the non-PGO build:
+MySQL 9.7.0 with Profile-Guided Optimization (PGO) demonstrates measurable performance improvements over the non-PGO build:
 
 **Overall Performance Summary:**
-- **Average improvement: 10.7%** across all configurations
-- **Peak improvement: 31%** (Tier 2G, 32 threads)
-- Performance gains range from 6% to 31% in most scenarios
-- Minor regressions (-3% to -4%) observed only at very high thread counts (128-512 threads) with smaller buffer pools
+- **Average improvement: 6.5%** across all configurations
+- **Peak improvement: 14.3%** (Tier 32G, 1 thread), gradually tapering to 10.3% at 512 threads as concurrency increases
+- Performance gains range from 0.5% to 14.3% in most scenarios
+- Minor regression (-3.1% at Tier 12G, 128 threads)
 
 **Performance by Buffer Pool Size:**
-- **Tier 2G** (2GB buffer pool): Average improvement of **10.4%**
-  - Best gains at 32 threads (31% improvement)
-  - Consistent 6-16% gains across 1-64 threads
-- **Tier 12G** (12GB buffer pool): Average improvement of **12.1%**
-  - Strong gains across all thread counts
-  - Peak improvements of 24-25% at 64-128 threads
-- **Tier 32G** (32GB buffer pool): Average improvement of **9.5%**
-  - Steady 6-15% improvements across all thread counts
-  - Consistent gains even at highest concurrency (256-512 threads: 11%)
+- **Tier 2G** (2GB buffer pool): Average improvement of **3.0%**
+  - Best gains at 4 threads (5.5% improvement)
+  - Gains range from 0.5% to 5.5% across all thread counts
+  - Modest improvements with no regressions
+- **Tier 12G** (12GB buffer pool): Average improvement of **4.1%**
+  - Best gains at 4 threads (8.6% improvement)
+  - Strong gains at low concurrency (1-4 threads: 7.3%-8.6%)
+  - Minor regression at 128 threads (-3.1%), neutral at 512 threads (-0.0%)
+- **Tier 32G** (32GB buffer pool): Average improvement of **12.2%**
+  - Consistently strong gains across all thread counts (10.3% to 14.3%)
+  - Peak performance at lowest concurrency (1 thread: 14.3%)
+  - Maintains 11-12% improvement even at highest concurrency (128-512 threads)
 
 **Key Observations:**
-- PGO provides the most significant benefits at moderate concurrency levels (32-128 threads)
-- Larger buffer pools (32GB) maintain consistent PGO benefits even under extreme concurrency
-- Smaller buffer pools may see slight regressions at very high thread counts (128-512 threads)
-- The performance improvements demonstrate PGO's effectiveness in optimizing hot code paths in production-like workloads
+- PGO provides the most significant benefits with larger buffer pools (32GB tier shows 12.2% average improvement)
+- Largest buffer pool configuration benefits from PGO across all concurrency levels with no regressions
+- Low to moderate concurrency (1-32 threads) shows best PGO gains across all tiers
+- Smaller buffer pools (2GB, 12GB) show more modest improvements and occasional regressions at very high thread counts
+- The performance improvements demonstrate PGO's effectiveness in optimizing hot code paths, particularly when memory resources are abundant
 
 ### InnoDB Metrics Analysis
 
@@ -57,8 +79,8 @@ Deep analysis of InnoDB metrics reveals the source of PGO's performance improvem
 
 **Root Cause: CPU-Level Optimizations**
 - PGO improvements are **NOT** from I/O optimization, caching, or lock reduction
-- Buffer pool hit ratios remain virtually identical between PGO and non-PGO (Tier 32G: 100% for both)
-- Lock contention is minimal in both builds (<50 waits in 15 minutes)
+- Buffer pool hit ratios remain virtually identical between PGO and non-PGO builds
+- Lock contention is minimal in both builds
 - All I/O metrics scale proportionally with increased throughput
 
 **What PGO Actually Optimizes:**
@@ -67,18 +89,7 @@ Deep analysis of InnoDB metrics reveals the source of PGO's performance improvem
 - ✓ Optimized function inlining
 - ✓ More efficient CPU instruction ordering
 
-**DML Operations Correlation:**
-- DML operations (inserts/updates/deletes) improve by +11.1% on average
-- Perfectly correlates with transaction throughput gains
-- Best case: +31.6% (Tier 2G, 32 threads)
-- Tier 12G at 64-128 threads: +25% DML throughput improvement
-
-**Tier-Specific Patterns:**
-- **Tier 2G** (~85-87% hit ratio): PGO helps CPU efficiency during I/O waits
-- **Tier 12G** (~92-93% hit ratio): Balanced workload shows strongest relative gains
-- **Tier 32G** (100% hit ratio): Pure CPU-bound workload demonstrates consistent PGO benefits
-
-The metrics confirm that PGO's 10.7% average improvement comes entirely from making the CPU more efficient at executing MySQL's hot code paths, allowing it to process more transactions per second with the same hardware resources.
+The metrics confirm that PGO's 6.5% average improvement comes entirely from making the CPU more efficient at executing MySQL's hot code paths, allowing it to process more transactions per second with the same hardware resources.
 
 ## What is PGO?
 
@@ -119,6 +130,7 @@ Profile-Guided Optimization (PGO) is a compiler optimization technique that uses
 
 ### Performance Reports
 - **Sysbench Individual Runs**: Detailed per-run performance metrics
+- **Sysbench Average Results**: Aggregated performance across all runs
 - **InnoDB Metrics**: Interactive storage engine metrics
 
 ### Variable Comparisons
@@ -132,17 +144,23 @@ Profile-Guided Optimization (PGO) is a compiler optimization technique that uses
 ├── benchmark_logs/         # Raw benchmark data and logs
 │   ├── mysql/              # MySQL 9.7.0 (PGO)
 │   └── mysql-non-pgo/      # MySQL 9.7.0 (no PGO)
-├── visuals/                # Report generation scripts
+├── visuals/                # Report generation scripts and graphs
 │   ├── vars_comparison_report.py
 │   ├── innodb_metrics_report.py
-│   └── throughput_report.py
+│   ├── throughput_report.py
+│   ├── generate_index.py
+│   ├── pgo_all.png         # Performance graphs
+│   ├── pgo_2G.png
+│   ├── pgo_12G.png
+│   └── pgo_32G.png
 ├── index.html              # Main report index
 ├── status_variables_comparison.html
 ├── system_variables_comparison.html
 ├── innodb_metrics_report.html
 ├── sysbench_ps_mysql_individual.html
+├── sysbench_ps_mysql_average.html
 ├── run_metrics.sh          # Benchmark execution script
-├── BUILD.md                # Build steps
+├── BUILD.md                # Build steps for MySQL non-PGO
 └── README.md               # This file
 ```
 
@@ -153,9 +171,85 @@ For detailed build instructions, see **[BUILD.md](BUILD.md)**, which provides:
 - CMake configuration details and compiler flags
 - Docker image packaging strategy
 - Build verification and testing steps
+- Native AIO (libaio) configuration
 - Comparison of PGO vs non-PGO builds
+
+**Quick Summary:**
+
+The MySQL 9.7.0 non-PGO build was created from source using:
+- **Compiler**: GCC Toolset 14 on Oracle Linux 9
+- **Build Type**: RelWithDebInfo (optimized with debug symbols)
+- **Native AIO**: Enabled (libaio-devel)
+- **SSL**: System OpenSSL
+- **Output**: Docker image `mysql-non-pgo:9.7.0` (~2.9GB)
+
+See BUILD.md for complete build commands and Docker configuration.
+
+## Reproducing the Benchmark
+
+### Prerequisites
+- Docker installed and running
+- MySQL client tools (mysql, sysbench)
+- System metrics tools (iostat, vmstat, mpstat, dstat)
+- Root access for CPU governor settings
+
+### Running Benchmarks
+
+```bash
+cd ~/2026-pgo
+
+# Run benchmark for MySQL 9.7.0 (PGO build)
+./run_metrics.sh mysql 9.7.0 0
+
+# Run benchmark for MySQL 9.7.0 non-PGO (custom build)
+./run_metrics.sh mysql-non-pgo 9.7.0 0
+```
+
+### Generating Reports
+
+```bash
+cd visuals
+
+# Generate all HTML reports
+python3 vars_comparison_report.py
+python3 innodb_metrics_report.py
+python3 throughput_report.py
+python3 generate_index.py
+```
+
+## Technical Details
+
+### InnoDB Configuration
+- **Buffer Pool Size**: 2GB / 12GB / 32GB (per tier)
+- **Buffer Pool Instances**: Calculated as size/5GB (max 8)
+- **Flush Method**: O_DIRECT
+- **Flush Log at Commit**: 1 (full ACID)
+- **Doublewrite**: Enabled
+- **I/O Capacity**: 10,000 (max: 20,000)
+- **I/O Threads**: 16 read, 16 write
+- **Native AIO**: Enabled
+- **Change Buffering**: None (disabled)
+- **Redo Log Capacity**: 4GB (MySQL 8.4+ style)
+
+### Binary Logging
+- **Enabled**: Yes
+- **Format**: ROW
+- **Row Image**: MINIMAL
+- **Sync Binlog**: 1 (synchronous)
+- **Cache Size**: 4MB
+- **Max Size**: 512MB
+
+### General Settings
+- **Max Connections**: 2000
+- **Thread Cache**: 256
+- **Performance Schema**: OFF
+- **Character Set**: utf8mb4
+- **Collation**: utf8mb4_unicode_ci
 
 ---
 
 **Last Updated**: May 2026  
-**MySQL Version**: 9.7.0
+**MySQL Version**: 9.7.0  
+**Build Platform**: Oracle Linux 9.7  
+**Compiler**: GCC Toolset 14  
+**Benchmark Tool**: Sysbench OLTP Read/Write

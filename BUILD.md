@@ -272,7 +272,7 @@ This custom build:
 ✅ Same source code version (9.7.0)  
 ✅ Same features and plugins enabled  
 
-**Performance Difference:** The PGO-enabled official build shows approximately **10.7% better performance** on average across OLTP workloads compared to this non-PGO build. See the main [README.md](README.md) for detailed benchmark results.
+**Performance Difference:** The PGO-enabled official build shows approximately **6.5% better performance** on average across OLTP workloads compared to this non-PGO build. See the main [README.md](README.md) for detailed benchmark results.
 
 ## References
 
@@ -282,6 +282,6 @@ This custom build:
 
 ---
 
-**Build Date:** April 2026  
+**Build Date:** May 2026  
 **MySQL Version:** 9.7.0  
 **Build Type:** RelWithDebInfo (Non-PGO)

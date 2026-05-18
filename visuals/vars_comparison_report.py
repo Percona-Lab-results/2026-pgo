@@ -9,8 +9,8 @@ Usage:
   python3 vars_comparison_report.py [base_dir] [output_dir]
 
 Defaults:
-  base_dir   = "../benchmark_logs"
-  output_dir = ".."
+  base_dir   = "./benchmark_logs"
+  output_dir = "."
 """
 
 import sys
