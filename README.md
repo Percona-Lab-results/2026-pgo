@@ -18,15 +18,11 @@ This project contains performance benchmark results comparing Profile-Guided Opt
 📊 **[Interactive Reports](https://percona-lab-results.github.io/2026-pgo/index.html)**
 
 The benchmark reports are available as interactive HTML pages at:
-```
-https://percona-lab-results.github.io/2026-pgo/index.html
-```
+
+[https://percona-lab-results.github.io/2026-pgo/index.html]((https://percona-lab-results.github.io/2026-pgo/index.html))
+
 
 ### Performance Graphs
-
-**Overall Comparison (All Tiers):**
-
-![PGO vs Non-PGO - All Tiers](visuals/pgo_all.png)
 
 **Tier 2G (2GB Buffer Pool):**
 

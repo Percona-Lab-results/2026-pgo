@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Simple Markdown to HTML converter for REPORT.md"""
+"""Simple Markdown to HTML converter for README.md"""
 
 import re
 import sys
@@ -187,7 +187,7 @@ def process_inline_markdown(text):
     return text
 
 if __name__ == '__main__':
-    with open('REPORT.md', 'r') as f:
+    with open('README.md', 'r') as f:
         md_content = f.read()
 
     html_content = md_to_html(md_content)
@@ -195,4 +195,4 @@ if __name__ == '__main__':
     with open('test-report.html', 'w') as f:
         f.write(html_content)
 
-    print("Generated test-report.html from REPORT.md")
+    print("Generated test-report.html from README.md")
