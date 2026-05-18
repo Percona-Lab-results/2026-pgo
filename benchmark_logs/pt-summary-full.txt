@@ -1,7 +1,7 @@
 # Percona Toolkit System Summary Report ######################
-        Date | 2026-04-29 10:47:47 UTC (local TZ: UTC +0000)
+        Date | 2026-05-18 05:11:40 UTC (local TZ: UTC +0000)
     Hostname | beast-node7.tp.int.percona.com
-      Uptime | 323 days, 12:05,  6 users,  load average: 0.10, 1.41, 16.89
+      Uptime | 342 days,  6:29,  5 users,  load average: 0.79, 1.09, 2.57
     Platform | Linux
      Release | Ubuntu 24.04 LTS (noble)
       Kernel | 6.8.0-60-generic
@@ -11,20 +11,20 @@ Architecture | CPU = 64-bit, OS = 64-bit
  Virtualized | No virtualization detected
 # Processor ##################################################
   Processors | physical = 2, cores = 40, virtual = 80, hyperthreading = yes
-      Speeds | 1x2463.866, 1x3392.307, 1x3397.224, 1x3397.248, 1x3398.776, 1x3399.191, 1x3399.730, 1x3400.315, 1x3598.172, 1x3599.442, 1x3599.825, 1x3599.956, 1x3600.008, 1x3604.333, 1x3694.530, 64x3900.000, 1x800.528
+      Speeds | 1x1059.833, 1x1087.875, 1x1587.245, 1x3383.417, 1x3479.569, 1x3599.380, 1x3599.534, 1x3600.006, 1x3600.232, 1x3600.503, 1x3600.784, 1x3600.957, 1x3602.864, 1x3682.109, 65x3900.000, 1x836.286
       Models | 80xIntel(R) Xeon(R) Gold 6230 CPU @ 2.10GHz
       Caches | 80x28160 KB
   Designation               Configuration                  Size     Associativity
   ========================= ============================== ======== ======================
 # Memory #####################################################
          Total | 187.5G
-          Free | 123.6G
-          Used | physical = 6.1G, swap allocated = 8.0G, swap used = 4.0M, virtual = 6.1G
+          Free | 62.0G
+          Used | physical = 35.2G, swap allocated = 8.0G, swap used = 5.8M, virtual = 35.2G
         Shared | 11.4M
-       Buffers | 59.6G
-        Caches | 181.5G
-         Dirty | 129848 kB
-       UsedRSS | 2.3G
+       Buffers | 92.8G
+        Caches | 152.4G
+         Dirty | 130784 kB
+       UsedRSS | 30.2G
     Swappiness | 60
    DirtyPolicy | 20, 10
    DirtyStatus | 0, 0
@@ -33,15 +33,15 @@ Architecture | CPU = 64-bit, OS = 64-bit
 Preferred Node | current
    Node    Size        Free        CPUs
    ====    ====        ====        ====
-   node1   96748 MB    68152 MB    20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 
-   node0   95288 MB    58403 MB    0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 
+   node1   96748 MB    58100 MB    20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 
+   node0   95288 MB    5384 MB     0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 
 
   Locator   Size     Speed             Form Factor   Type          Type Detail
   ========= ======== ================= ============= ============= ===========
 # Mounted Filesystems ########################################
   Filesystem      Size Used Type     Opts                                                                                                 Mountpoint
-  /dev/nvme0n1p1  2.9T   2% ext4     rw,relatime                                                                                          /mnt/nvme
-  /dev/nvme0n1p1  2.9T   2% ext4     rw,relatime                                                                                          /mnt/nvme
+  /dev/nvme0n1p1  2.9T   5% ext4     rw,relatime                                                                                          /mnt/nvme
+  /dev/nvme0n1p1  2.9T   5% ext4     rw,relatime                                                                                          /mnt/nvme
   /dev/sda1       1.1G   1% vfat     rw,relatime,fmask=0022,dmask=0022,codepage=437,iocharset=iso8859-1,shortname=mixed,errors=remount-ro /boot/efi
   /dev/sda2        98G   1% ext4     rw,relatime                                                                                          /boot
   /dev/sda3       780G   5% ext4     rw,relatime                                                                                          /
@@ -76,9 +76,9 @@ Preferred Node | current
          sda | [mq-deadline] 64
 # Disk Partitioning ##########################################
 # Kernel Inode State #########################################
-dentry-state | 3025247	2978803	45	0	2368610	0
-     file-nr | 4032	0	9223372036854775807
-    inode-nr | 668527	8747
+dentry-state | 3427841	3369043	45	0	2548700	0
+     file-nr | 5152	0	9223372036854775807
+    inode-nr | 888689	8751
 # LVM Volumes ################################################
 Unable to collect information
 # LVM Volume Groups ##########################################
@@ -93,10 +93,10 @@ Unable to collect information
 # Interface Statistics #######################################
   interface  rx_bytes rx_packets  rx_errors   tx_bytes tx_packets  tx_errors
   ========= ========= ========== ========== ========== ========== ==========
-  lo       50000000000000 45000000000          0 50000000000000 45000000000          0
-  enp94s0f0 1250000000   15000000          0   35000000     125000          0
-  enp94s0f1 60000000000  175000000          0 17500000000  125000000          0
-  docker0    50000000     900000          0 4000000000    1500000          0
+  lo       100000000000000 100000000000          0 100000000000000 100000000000          0
+  enp94s0f0 1500000000   15000000          0   35000000     125000          0
+  enp94s0f1 60000000000  175000000          0 20000000000  150000000          0
+  docker0    50000000    1000000          0 4500000000    1750000          0
 # Network Devices ############################################
   Device    Speed     Duplex
   ========= ========= =========
@@ -105,21 +105,27 @@ Unable to collect information
   docker0    Unknown!   Unknown!  
 # Top Processes ##############################################
     PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND
-  91786 bogdan.+  20   0   22432   6400   4480 R   8.3   0.0   0:00.02 top
-      1 root      20   0   22816  14720   8960 S   0.0   0.0  91:21.29 systemd
-      2 root      20   0       0      0      0 S   0.0   0.0   0:35.70 kthreadd
+2480667 dnsmasq   20   0   46.4g  27.3g  44800 S 154.5  14.5      9,47 mysqld
+2425680 bogdan.+  20   0  322716  65432  14720 S   9.1   0.0   1:05.80 code-97+
+2425791 bogdan.+  20   0   11.3g 132620  52480 S   9.1   0.1   0:52.73 node
+      1 root      20   0   22956  16000   9600 S   0.0   0.0  93:21.66 systemd
+      2 root      20   0       0      0      0 S   0.0   0.0   0:36.68 kthreadd
       3 root      20   0       0      0      0 S   0.0   0.0   0:00.00 pool_wo+
       4 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 kworker+
       5 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 kworker+
       6 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 kworker+
-      7 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 kworker+
-      9 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 kworker+
 # Notable Processes ##########################################
   PID    OOM    COMMAND
     ?      ?    sshd doesn't appear to be running
 3565933    -17    multipathd
-3566032    -17    sshd
-3566128    -17    systemd-udevd
+# Simplified and fuzzy rounded vmstat (wait please) ##########
+  procs  ---swap-- -----io---- ---system---- --------cpu--------
+   r  b    si   so    bi    bo     ir     cs  us  sy  il  wa  st
+   1  0     0    0  6000  7000   3000      1   0   0  99   0   0
+   0  0     0    0     0 300000  20000  22500   0   0  99   0   0
+   0  0     0    0     0 300000  15000  17500   0   0  99   0   0
+   0  0     0    0     0 300000  17500  22500   0   0  99   0   0
+   0  0     0    0     0 300000  15000  22500   0   0  99   0   0
 # Memory management ##########################################
 Transparent huge pages are enabled.
 # The End ####################################################

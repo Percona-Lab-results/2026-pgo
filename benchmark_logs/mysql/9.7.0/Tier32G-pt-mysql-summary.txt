@@ -1,16 +1,16 @@
 # Percona Toolkit MySQL Summary Report #######################
-              System time | 2026-04-29 17:43:54 UTC (local TZ: UTC +0000)
+              System time | 2026-05-14 23:12:34 UTC (local TZ: UTC +0000)
 # Instances ##################################################
   Port  Data Directory             Nice OOM Socket
   ===== ========================== ==== === ======
 # MySQL Executable ###########################################
 # Report On Port 3306 ########################################
                      User | root@%
-                     Time | 2026-04-29 17:43:54 (UTC)
+                     Time | 2026-05-14 23:12:34 (UTC)
                  Hostname | beast-node7.tp.int.percona.com
                   Version | 9.7.0 MySQL Community Server - GPL
                  Built On | Linux x86_64
-                  Started | 2026-04-29 17:42 (up 0+00:01:45)
+                  Started | 2026-05-14 23:10 (up 0+00:01:44)
                 Databases | 5
                   Datadir | /var/lib/mysql/
                 Processes | 1 connected, 2 running
@@ -43,10 +43,10 @@
   Waiting on empty queue                1       1       100       100
 
 # Status Counters (Wait 10 Seconds) ##########################
-Variable                                Per day  Per second     11 secs
+Variable                                Per day  Per second     10 secs
 Binlog_cache_use                       30000000         350            
-Bytes_received                      15000000000000   175000000         600
-Bytes_sent                           1750000000       22500        3500
+Bytes_received                      17500000000000   200000000         700
+Bytes_sent                           2000000000       22500        4000
 Com_admin_commands                          800                        
 Com_change_db                               800                        
 Com_create_db                               800                        
@@ -66,46 +66,46 @@ Error_log_buffered_events                450000           5
 Error_log_latest_write              1500000000000000000 17500000000000            
 Flush_commands                             2500                        
 Handler_commit                         60000000         700            
-Handler_delete                           225000           2            
-Handler_external_lock                  70000000         800           8
+Handler_delete                           250000           2            
+Handler_external_lock                  70000000         900           9
 Handler_prepare                        60000000         700            
 Handler_read_first                        35000                        
 Handler_read_key                        2500000          30           3
-Handler_read_next                       4000000          50           6
-Handler_read_rnd_next                   4000000          45         100
+Handler_read_next                       4500000          50           7
+Handler_read_rnd_next                   4000000          45         125
 Handler_update                           500000           5            
 Handler_write                       80000000000     1000000          60
-Innodb_buffer_pool_bytes_data       17500000000000   225000000       60000
-Innodb_buffer_pool_bytes_dirty      500000000000     6000000   -59728616
-Innodb_buffer_pool_pages_flushed     1000000000       12500        3500
+Innodb_buffer_pool_bytes_data       17500000000000   225000000      125000
+Innodb_buffer_pool_bytes_dirty      600000000000     7000000   -68827545
+Innodb_buffer_pool_pages_flushed     1000000000       12500        5000
 Innodb_buffer_pool_read_requests    350000000000     4000000         350
-Innodb_buffer_pool_reads                1500000          15           3
+Innodb_buffer_pool_reads                1500000          15           8
 Innodb_buffer_pool_write_requests   150000000000     1750000         250
-Innodb_data_fsyncs                   1500000000       15000         225
-Innodb_data_read                    25000000000      300000       60000
-Innodb_data_reads                     100000000        1250           3
-Innodb_data_writes                  12500000000      150000        3500
-Innodb_data_written                 50000000000000   600000000    60000000
-Innodb_dblwr_pages_written           1000000000       12500        3500
-Innodb_dblwr_writes                     9000000         100          30
-Innodb_redo_log_uuid                1750000000000    20000000            
+Innodb_data_fsyncs                   1000000000       12500         250
+Innodb_data_read                    25000000000      300000      125000
+Innodb_data_reads                     100000000        1250           8
+Innodb_data_writes                  12500000000      125000        4500
+Innodb_data_written                 50000000000000   600000000    70000000
+Innodb_dblwr_pages_written           1000000000       12500        4000
+Innodb_dblwr_writes                     9000000         100          35
+Innodb_redo_log_uuid                1750000000000    22500000            
 Innodb_redo_log_checkpoint_lsn      20000000000000   250000000   100000000
 Innodb_redo_log_current_lsn         22500000000000   250000000        5000
 Innodb_redo_log_flushed_to_disk_lsn 22500000000000   250000000        5000
-Innodb_redo_log_logical_size        1000000000000    12500000  -111548043
-Innodb_redo_log_physical_size       3500000000000    40000000            
+Innodb_redo_log_logical_size        800000000000    10000000  -102203033
+Innodb_redo_log_physical_size       3000000000000    35000000            
 Innodb_redo_log_capacity_resized    3500000000000    40000000            
-Innodb_log_write_requests           150000000000     1750000         100
+Innodb_log_write_requests           150000000000     1750000          90
 Innodb_log_writes                   10000000000      125000           1
-Innodb_os_log_fsyncs                 1250000000       15000           1
+Innodb_os_log_fsyncs                  900000000       10000           1
 Innodb_os_log_written               22500000000000   250000000        5000
 Innodb_pages_created                 1250000000       15000            
-Innodb_pages_read                       1500000          15           3
-Innodb_pages_written                 1250000000       12500        3500
-Innodb_rows_inserted                80000000000     1000000           8
+Innodb_pages_read                       1500000          15           8
+Innodb_pages_written                 1250000000       12500        4000
+Innodb_rows_inserted                80000000000     1000000           9
 Innodb_system_rows_deleted              1000000          10            
 Innodb_system_rows_inserted             1250000          15            
-Innodb_system_rows_read                 6000000          70           9
+Innodb_system_rows_read                 6000000          70          10
 Innodb_system_rows_updated               500000           6            
 Innodb_num_open_files                     30000                        
 Innodb_undo_tablespaces_total              1750                        
@@ -117,7 +117,7 @@ Mysqlx_worker_threads                      1750
 Open_table_definitions                    60000                        
 Opened_files                               2500                        
 Opened_table_definitions                 125000           1            
-Opened_tables                            500000           5           1
+Opened_tables                            500000           5           2
 Queries                                30000000         350           5
 Questions                              30000000         350           5
 Select_scan                                8000                        
@@ -125,8 +125,8 @@ Ssl_accepts                               60000                       1
 Ssl_finished_accepts                      60000                       1
 Ssl_session_cache_timeout                250000           2            
 Table_locks_immediate                      4000                        
-Table_open_cache_hits                  35000000         400           3
-Table_open_cache_misses                  500000           5           1
+Table_open_cache_hits                  35000000         400           1
+Table_open_cache_misses                  500000           5           2
 Threads_created                           50000                        
 Uptime                                    90000           1           1
 # Table cache ################################################
@@ -180,10 +180,10 @@ Specify --databases or --all-databases to dump and summarize schemas
       Txn Isolation Level | REPEATABLE-READ
         Adaptive Flushing | ON
       Adaptive Checkpoint | 
-           Checkpoint Age | 1G
+           Checkpoint Age | 975M
              InnoDB Queue | 0 queries inside InnoDB, 0 queries in queue
        Oldest Transaction | 0 Seconds
-         History List Len | 1020
+         History List Len | 860
                Read Views | 0
          Undo Log Entries | 0 transactions, 0 total undo, 0 max undo
         Pending I/O Reads | 0 buf pool reads, 0 normal AIO, 0 ibuf AIO, 0 preads

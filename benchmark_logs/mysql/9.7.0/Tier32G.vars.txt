@@ -119,7 +119,7 @@ global_connection_memory_status_limit	18446744073709551615
 global_connection_memory_tracking	OFF
 group_concat_max_len	1024
 group_replication_consistency	BEFORE_ON_PRIMARY_FAILOVER
-gtid_executed	b893a023-43f2-11f1-b83b-ac1f6bc84581:1-6
+gtid_executed	20494764-4fea-11f1-ab5e-ac1f6bc84581:1-6
 gtid_executed_compression_period	0
 gtid_mode	ON
 gtid_next	AUTOMATIC
@@ -541,7 +541,7 @@ select_into_disk_sync_delay	0
 server_id	1
 server_id_bits	32
 server_memory	0
-server_uuid	b893a023-43f2-11f1-b83b-ac1f6bc84581
+server_uuid	20494764-4fea-11f1-ab5e-ac1f6bc84581
 session_track_gtids	OFF
 session_track_schema	ON
 session_track_state_change	OFF
@@ -630,7 +630,7 @@ thread_cache_size	256
 thread_handling	one-thread-per-connection
 thread_stack	524288
 time_zone	SYSTEM
-timestamp	1777484531.533143
+timestamp	1778800253.982247
 tls_certificates_enforced_validation	OFF
 tls_ciphersuites	
 tls_version	TLSv1.2,TLSv1.3
