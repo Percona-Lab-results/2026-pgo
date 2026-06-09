@@ -27,7 +27,7 @@ sudo apt install sysstat sysbench dstat -y
 ./run_pt_mysql_summary.sh
 
 
-./run_metrics.sh "ps-non-pgo-9.7.0" "$2"
+./run_metrics.sh "ps-non-pgo-9.7.0" "$1"
 
 # ./run_metrics.sh "percona-server" "8.4.8" "0"
 

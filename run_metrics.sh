@@ -116,7 +116,14 @@ echo "socket = /tmp/mysql.sock" >> "$CONFIG_PATH"
 echo "pid-file = /tmp/mysqld.pid" >> "$CONFIG_PATH"
 
 start_server
-server_wait 
+server_wait
+
+# Set root password
+echo "Setting root password..."
+mysql -h $DB_HOST -u $DB_USER -e "ALTER USER 'root'@'localhost' IDENTIFIED BY '$DB_PASS';" 2>/dev/null
+mysql -h $DB_HOST -u $DB_USER -p$DB_PASS -e "CREATE USER IF NOT EXISTS 'root'@'%' IDENTIFIED BY '$DB_PASS';" 2>/dev/null
+mysql -h $DB_HOST -u $DB_USER -p$DB_PASS -e "GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' WITH GRANT OPTION;" 2>/dev/null
+mysql -h $DB_HOST -u $DB_USER -p$DB_PASS -e "FLUSH PRIVILEGES;" 2>/dev/null 
 
 RAW_VERSION=$(mysql -h $DB_HOST -u $DB_USER -p$DB_PASS -N -e "SELECT VERSION();" 2>/dev/null)
 MAJOR_VER=$(echo $RAW_VERSION | cut -d'.' -f1,2)
