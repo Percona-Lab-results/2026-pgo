@@ -24,34 +24,30 @@ DURATION=900
 # DURATION=10
 
 DBMS_NAME="$1"
-DBMS_VER="$2"
-IS_READ_ONLY="$3"
+SERVER_DIR="$2"
 
-CONF_D_DIR="/etc/mysql/conf.d"
+# Data directory is fixed at ~/servers/data
+DATA_DIR="$HOME/servers/data"
+
 sudo cpupower frequency-set -g performance > /dev/null
 
-echo "============= Running benchmarks for ${DBMS_NAME}:${DBMS_VER} ============="
+echo "============= Running benchmarks for ${DBMS_NAME} ============="
 
 if [[ "$DBMS_NAME" == "percona-server" ]]; then
-    IMAGE_PREFIX="percona/"
-    CONF_D_DIR="/etc/my.cnf.d"
+    CONF_D_DIR="${SERVER_DIR}/etc/my.cnf.d"
 fi
 
 if [[ "$DBMS_NAME" == "mysql-server" ]]; then
-    # Assume the image was built using RPM with the default config location
-    CONF_D_DIR="/etc"
+    CONF_D_DIR="${SERVER_DIR}/etc"
 fi
-
 
 if [[ "$DBMS_NAME" == "mariadb" ]]; then
     ADMIN_TOOL="mariadb-admin"
+    CONF_D_DIR="${SERVER_DIR}/etc/mysql/conf.d"
 else
     ADMIN_TOOL="mysqladmin"
-fi  
-
-IMAGE_NAME="${IMAGE_PREFIX}${DBMS_NAME}:${DBMS_VER}"
-
-CONTAINER_NAME="dbms-benchmark-test"
+    CONF_D_DIR="${SERVER_DIR}/etc/mysql/conf.d"
+fi
 
 MYSQL_ROOT_PASSWORD="password"
 CONFIG_DIR="$HOME/configs"
@@ -64,70 +60,62 @@ server_wait() {
   echo "Waiting for DB Server to initialize..."
   sleep 5
 
-  # Check that the container exists and is running
-  if [ "$(docker inspect -f '{{.State.Running}}' "$CONTAINER_NAME" 2>/dev/null)" != "true" ]; then
-    echo "Fatal error: container '$CONTAINER_NAME' is not running or does not exist. Terminating script."
-    exit 1
-  fi
-
-  until docker exec "$CONTAINER_NAME" "$ADMIN_TOOL" ping --host=127.0.0.1 -u"root" -p"$DB_PASS" 2>/dev/null; do
-    echo "Waiting..."       
+  until "${ADMIN_TOOL}" ping --host=127.0.0.1 -u"root" -p"$DB_PASS" 2>/dev/null; do
+    echo "Waiting..."
     sleep 2
   done
 }
 
-stop_container() {
-  local CONTAINER=$1
-  echo "Stopping container ${CONTAINER}"
-  docker container stop "$CONTAINER" 2>/dev/null
+stop_server() {
+  echo "Stopping MySQL server..."
+  "${ADMIN_TOOL}" shutdown --host=127.0.0.1 -u"root" -p"$DB_PASS" 2>/dev/null
   sleep 2
-  docker container rm "$CONTAINER" 2>/dev/null
+  # Make sure the process is killed
+  pkill -f "${SERVER_DIR}/bin/mysqld" 2>/dev/null
+  sleep 2
 }
 
-run_container() {
-  local MOUNT=$1
+start_server() {
+  echo "Starting MySQL server from ${SERVER_DIR}..."
+  echo "Using config: $CONFIG_PATH"
+  echo "Using data directory: $DATA_DIR"
 
-  if [ -n "$MOUNT" ]; then
-    echo "Mounting config from: $CONFIG_PATH"
-    MOUNT_ARG="-v ${CONFIG_PATH}:${CONF_D_DIR}/${CONFIG_NAME}:ro"
-    # MOUNT_ARG="-v /mnt/nvme/data/:/var/log/mysql:rw ${MOUNT_ARG}"
+  # Start the server with the custom config
+  "${SERVER_DIR}/bin/mysqld" --defaults-file="$CONFIG_PATH" --user=mysql --daemonize
+
+  if [ $? -ne 0 ]; then
+    echo "ERROR: Failed to start MySQL server"
+    exit 1
   fi
-
-  # 1. Define the command as an array
-  local cmd=(
-    docker run --user mysql --rm -it --name "$CONTAINER_NAME"
-    --network host
-    $MOUNT_ARG
-    -e MYSQL_ROOT_PASSWORD="$MYSQL_ROOT_PASSWORD"
-    -e MYSQL_DATABASE="$DB_DATABASE"
-    -e MYSQL_ROOT_HOST='%'
-    -d "${IMAGE_NAME}"
-  )
-
-  # 2. Print the command to the terminal
-  echo "Executing: ${cmd[*]}"
-
-  # 3. Run the command
-  "${cmd[@]}"
 }
 
-# Make sure no containers are running at this stage.
-stop_container "$CONTAINER_NAME"
+# Make sure no server is running at this stage.
+stop_server
 
 # --- DETECT VERSION & VENDOR ---
-echo "Run container to detect the version of the server"
+echo "Starting server to detect the version"
 
-if [[ "$IS_READ_ONLY" == "1" ]]; then
-    BENCH_DIR="./benchmark_logs_read_only"
-else
-    BENCH_DIR="./benchmark_logs"
-fi  
+BENCH_DIR="./benchmark_logs"
 
 echo "Removing old config if exists: $CONFIG_PATH"
 sudo rm -rf "$CONFIG_PATH"
 
-# --- THIS NEEDS TO BE DONE IF A VERSION IS "latest" ---
-run_container
+# Remove old data directory
+echo "Removing old data directory: $DATA_DIR"
+rm -rf "$DATA_DIR"
+mkdir -p "$DATA_DIR"
+
+# Initialize the data directory
+echo "Initializing data directory..."
+"${SERVER_DIR}/bin/mysqld" --initialize-insecure --user=mysql --datadir="$DATA_DIR"
+
+# Create a minimal config to start the server
+echo "[mysqld]" > "$CONFIG_PATH"
+echo "datadir = $DATA_DIR" >> "$CONFIG_PATH"
+echo "socket = /tmp/mysql.sock" >> "$CONFIG_PATH"
+echo "pid-file = /tmp/mysqld.pid" >> "$CONFIG_PATH"
+
+start_server
 server_wait 
 
 RAW_VERSION=$(mysql -h $DB_HOST -u $DB_USER -p$DB_PASS -N -e "SELECT VERSION();" 2>/dev/null)
@@ -153,9 +141,7 @@ check_innodb_buffer() {
         echo "CRITICAL ERROR: Buffer Pool is ${ACTUAL_GB}GB (Expected ${EXPECTED_GB}GB)"
         echo "Aborting entire benchmark script immediately."
         echo "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-        
-        # docker stop "$CONTAINER_NAME" 2>/dev/null
-        # Immediate termination of the script
+       
         exit 1
     fi
 
@@ -211,9 +197,9 @@ generate_config() {
 
     echo "# --- General -------------------------------------------------------------------" >> "$CFG"
     echo "user                            = mysql" >> "$CFG"
-    echo "#datadir                         = /var/lib/mysql" >> "$CFG"
-    echo "#socket                          = /var/run/mysqld/mysqld.sock" >> "$CFG"
-    echo "#pid-file                        = /var/run/mysqld/mysqld.pid" >> "$CFG"
+    echo "datadir                         = $DATA_DIR" >> "$CFG"
+    echo "socket                          = /tmp/mysql.sock" >> "$CFG"
+    echo "pid-file                        = /tmp/mysqld.pid" >> "$CFG"
     echo "bind-address                    = 0.0.0.0" >> "$CFG"
     echo "port                            = 3306" >> "$CFG"
     echo "skip-name-resolve               = ON" >> "$CFG"
@@ -285,7 +271,7 @@ generate_config() {
     echo "# --- Binary Log (enable for replication / PITR) --------------------------------" >> "$CFG"
     # In 5.7, server_id must be specified if binary logging is enabled, otherwise the server is not allowed to start.
     echo "server_id                       = 1" >> "$CFG"
-    echo "log_bin                         = /var/lib/mysql/mysql-bin" >> "$CFG"
+    echo "log_bin                         = ${DATA_DIR}/mysql-bin" >> "$CFG"
     echo "binlog_format                   = ROW" >> "$CFG"
     echo "binlog_row_image                = MINIMAL" >> "$CFG"
     #echo "expire_logs_days                = 7" >> "$CFG"
@@ -296,7 +282,7 @@ generate_config() {
 
     echo "# --- Slow Query Log ------------------------------------------------------------" >> "$CFG"
     echo "slow_query_log                  = ON" >> "$CFG"
-    echo "slow_query_log_file             = /var/lib/mysql/slow.log" >> "$CFG"
+    echo "slow_query_log_file             = ${DATA_DIR}/slow.log" >> "$CFG"
     echo "long_query_time                 = 1" >> "$CFG"
     echo "log_queries_not_using_indexes   = OFF" >> "$CFG"
     echo "min_examined_row_limit          = 1000" >> "$CFG"
@@ -382,7 +368,7 @@ copy_server_logs() {
     local DEST_DIR="${LOG_DIR}"
 
     echo "Copying server logs to ${DEST_DIR}..."
-    docker cp "${CONTAINER_NAME}:/tmp/Tier${SIZE}G.errlog.txt" "${DEST_DIR}/"
+    cp "/tmp/Tier${SIZE}G.errlog.txt" "${DEST_DIR}/" 2>/dev/null || true
 }
 
 
@@ -446,8 +432,8 @@ trap 'stop_metrics' EXIT
 trap 'stop_metrics; exit 1' INT TERM
 
 init_data() {
-  # echo ">>> Resetting databases..."
-  # docker exec "$CONTAINER_NAME" mysql -h $DB_HOST -u $DB_USER -p$DB_PASS -N -e "DROP DATABASE IF EXISTS ${DB_DATABASE}; CREATE DATABASE ${DB_DATABASE};"
+  echo ">>> Resetting databases..."
+  mysql -h $DB_HOST -u $DB_USER -p$DB_PASS -N -e "DROP DATABASE IF EXISTS ${DB_DATABASE}; CREATE DATABASE ${DB_DATABASE};"
 
   echo ">>> Create tables and insert data..."
   sysbench oltp_read_only --mysql-host=$DB_HOST --mysql-user=$DB_USER --mysql-password=$DB_PASS \
@@ -464,12 +450,12 @@ for SIZE in "${POOL_SIZES[@]}"; do
   # 1. Apply Config & Restart
   generate_config $SIZE
 
-  stop_container $CONTAINER_NAME
+  stop_server
 
   echo "Starting server with the new config..."
-  run_container 1
-  server_wait "$CONTAINER_NAME"
-  echo "Container restarted with custom config."
+  start_server
+  server_wait
+  echo "Server restarted with custom config."
   check_innodb_buffer $SIZE
   enable_innodb_metrics
   check_vars_status "${LOG_DIR}/Tier${SIZE}G"
@@ -477,21 +463,16 @@ for SIZE in "${POOL_SIZES[@]}"; do
   run_mysql_summary "${LOG_DIR}/Tier${SIZE}G"
 
   # continue # SKIP BENCHMARKS FOR NOW, REMOVE ME WHEN READY
-  
+
   # 2. WARMUP (Reads then Writes)
   echo ">>> Warmup A: Read-Only (${WARMUP_RO_TIME}s)..."
   sysbench oltp_read_only --mysql-host=$DB_HOST --mysql-user=$DB_USER --mysql-password=$DB_PASS \
     --mysql-db=$DB_DATABASE --tables=20 --table-size=$TABLE_ROWS --threads=16 --time=$WARMUP_RO_TIME run
 
-  if [ "$IS_READ_ONLY" == "1" ]; then
-    echo "Read-only mode enabled, skipping read-write warmup and benchmarks."
-    TEST_TYPE="oltp_read_only"
-  else
-    echo ">>> Warmup B: Dirty Writes (${WARMUP_RW_TIME}s)..."
-    sysbench oltp_read_write --mysql-host=$DB_HOST --mysql-user=$DB_USER --mysql-password=$DB_PASS \
-        --mysql-db=$DB_DATABASE --tables=20 --table-size=$TABLE_ROWS --threads=64 --time=$WARMUP_RW_TIME run
-    TEST_TYPE="oltp_read_write"
-  fi
+  echo ">>> Warmup B: Dirty Writes (${WARMUP_RW_TIME}s)..."
+  sysbench oltp_read_write --mysql-host=$DB_HOST --mysql-user=$DB_USER --mysql-password=$DB_PASS \
+      --mysql-db=$DB_DATABASE --tables=20 --table-size=$TABLE_ROWS --threads=64 --time=$WARMUP_RW_TIME run
+  TEST_TYPE="oltp_read_write"
 
   # 3. MEASUREMENT (three runs per thread count for stability)
   for THREAD in "${THREADS[@]}"; do
@@ -521,6 +502,6 @@ for SIZE in "${POOL_SIZES[@]}"; do
   done
   copy_server_logs $SIZE
 
-  stop_container "$CONTAINER_NAME"
+  stop_server
 done
-echo "============= Finished benchmarks for ${DBMS_NAME}:${DBMS_VER} ============="
+echo "============= Finished benchmarks for ${DBMS_NAME} ============="

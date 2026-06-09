@@ -26,13 +26,8 @@ sudo apt install sysstat sysbench dstat -y
 ./run_pt_summary.sh
 ./run_pt_mysql_summary.sh
 
-IS_READ_ONLY="0"
-VERSIONS=("9.7.0")
 
-for VERSION in "${VERSIONS[@]}"; do
-  ./run_metrics.sh "mysql-non-pgo-2" "$VERSION" "$IS_READ_ONLY"
-#  ./run_metrics.sh "mysql" "$VERSION" "$IS_READ_ONLY"
-done
+./run_metrics.sh "ps-non-pgo-9.7.0" "$2"
 
 # ./run_metrics.sh "percona-server" "8.4.8" "0"
 
