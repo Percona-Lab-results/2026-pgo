@@ -80,13 +80,10 @@ start_server() {
   echo "Using config: $CONFIG_PATH"
   echo "Using data directory: $DATA_DIR"
 
-  # Start the server with the custom config
-  "${SERVER_DIR}/bin/mysqld" --defaults-file="$CONFIG_PATH" --user=mysql --daemonize
+  # Start the server with the custom config in the background
+  "${SERVER_DIR}/bin/mysqld" --defaults-file="$CONFIG_PATH" > /dev/null 2>&1 &
 
-  if [ $? -ne 0 ]; then
-    echo "ERROR: Failed to start MySQL server"
-    exit 1
-  fi
+  echo "MySQL server started in background (PID: $!)"
 }
 
 # Make sure no server is running at this stage.
@@ -107,7 +104,7 @@ mkdir -p "$DATA_DIR"
 
 # Initialize the data directory
 echo "Initializing data directory..."
-"${SERVER_DIR}/bin/mysqld" --initialize-insecure --user=mysql --datadir="$DATA_DIR"
+"${SERVER_DIR}/bin/mysqld" --initialize-insecure --datadir="$DATA_DIR"
 
 # Create a minimal config to start the server
 echo "[mysqld]" > "$CONFIG_PATH"
