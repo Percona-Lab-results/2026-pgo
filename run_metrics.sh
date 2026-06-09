@@ -107,6 +107,7 @@ echo "Initializing data directory..."
 "${SERVER_DIR}/bin/mysqld" --initialize-insecure --datadir="$DATA_DIR"
 
 # Create a minimal config to start the server
+mkdir -p "$CONFIG_DIR"
 echo "[mysqld]" > "$CONFIG_PATH"
 echo "datadir = $DATA_DIR" >> "$CONFIG_PATH"
 echo "socket = /tmp/mysql.sock" >> "$CONFIG_PATH"
