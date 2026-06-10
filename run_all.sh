@@ -1,33 +1,25 @@
 #!/bin/bash
 
-# Check if Docker is installed
-if ! command -v docker >/dev/null 2>&1; then
-    echo "Error: Docker is not installed." >&2
-    exit 1
-fi
 
-# Check if MySQL client is installed
-if ! command -v mysql >/dev/null 2>&1; then
-    echo "Error: MySQL client is not installed." >&2
-    exit 1
-fi
+# sudo apt update
+# sudo apt install sysstat sysbench dstat -y
 
-# Check if current user is in the docker group
-if ! groups "$USER" | grep -q "\bdocker\b"; then
-    echo "Error: User '$USER' is not in the docker group." >&2
-    exit 1
-fi
+# 2. Set CPU governor to performance mode and disable CPU idle state
+log_info "Setting CPU governor to performance mode..."
+sudo cpupower frequency-set -g performance 2>/dev/null || log_warn "Could not set CPU governor (cpupower not available or insufficient permissions)"
 
-
-sudo apt update
-sudo apt install sysstat sysbench dstat -y
+log_info "Disabling CPU idle states..."
+for cpu_idle in /sys/devices/system/cpu/cpu*/cpuidle/state*/disable; do
+    if [ -f "$cpu_idle" ]; then
+        echo 1 | sudo tee "$cpu_idle" > /dev/null 2>&1 || true
+    fi
+done
 
 
 ./run_pt_summary.sh
 ./run_pt_mysql_summary.sh
 
-
-./run_metrics.sh "ps-pgo-epyc-8.4.9" "$1"
+./run_metrics.sh "$1" "$2"
 
 # ./run_metrics.sh "percona-server" "8.4.8" "0"
 
